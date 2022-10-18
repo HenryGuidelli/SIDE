@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <title>CADASTRO USER</title>
+  </head>
+  <body>
+
+    <div>
+      <form method="POST" action="../php/cadasUser.php">
+        Nome:  <input type="text" name="nome"><br>
+        Email: <input type="email" name="email"><br>
+        Senha: <input type="password" name="senha"><br>
+        <input type="submit" value="Criar conta">
+      </form>
+
+      <form method="POST" action="../php/recuperarSenha.php">
+        <input type="submit" value="Esqueci a senha">
+      </form>
+
+      <form method="POST" action="../index.html">
+        <input type="submit" value="Já tenho conta">
+      </form>
+
+    </div>
+
+  </body>
+</html>  
