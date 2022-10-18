@@ -37,7 +37,7 @@
             <div class="form-group form-check">
             <a
               href="cadasUser.php"
-              A>CRIAR CONTA</a>
+              >CRIAR CONTA</a>
             </div>
             <a href="recuperarSenha.php">ESQUECI A SENHA</a>
           </div>
