@@ -114,8 +114,6 @@ print_r($resultado['email']);
 
 
 }
-// $email = 'henryguidellli@yahoo.com';
-// verifyEmail($email);
 
 function verifyUser($email, $senha){
 
