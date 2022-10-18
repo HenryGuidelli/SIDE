@@ -1,19 +1,20 @@
 body {
-    background-color: rgb(90, 149, 12);
-    
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    padding: 0;
 }
 
 body::-webkit-scrollbar {
     width: 5px;
     height: 5px;
-    background-color:;
+    background-color: none;
 }
 
 body::-webkit-scrollbar-track {
-    background:;
+    background: none;
 }
 body::-webkit-scrollbar-track-piece {
-    background:;
+    background: none;
 }
 body::-webkit-scrollbar-thumb {
     background: rgb(45, 45, 45);
@@ -52,23 +53,20 @@ li a {
 }
   
 li a:hover:not(.active) {
-  background-color: #111;
+  background-color: #04AA6D;
 }
+
+
 
 .container {
     background-color: rgb(65, 129, 129);
     font-size: 22px;
-    width: 35%;
-    /* border: 15px solid green; */
+    width: auto;
     padding: 1% 1% 1% 1%;
-    margin: 1%  1% 1% 1%;
+    margin:1%;
 }
 
-
-
 .intro {
-    overflow-x: hidden;
-    overflow-y: auto;
     font-size: 22px;
     width: auto;
     height: auto;
@@ -81,14 +79,14 @@ li a:hover:not(.active) {
 .intro::-webkit-scrollbar {
     width: 4px;
     height: 4px;
-    background-color:;
+    background-color: none;
 }
 
 .intro::-webkit-scrollbar-track {
-    background:;
+    background: none;
 }
 .intro::-webkit-scrollbar-track-piece {
-    background:;
+    background: none;
 }
 .intro::-webkit-scrollbar-thumb {
     background: rgb(45, 45, 45);
