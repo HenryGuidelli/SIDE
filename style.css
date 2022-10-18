@@ -3,6 +3,8 @@ body {
 }
 
 ul {
+  position: sticky;
+  top: 8px;
   list-style-type: none;
   margin: 0;
   padding: 0;
