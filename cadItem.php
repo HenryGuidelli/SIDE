@@ -16,7 +16,7 @@ session_start();
     }
 
     $email = $_SESSION['user'];
-    echo "<h1aaaaaaaaaaaa>$email</h1>";
+    echo "<h1>$email</h1>";
 
 ?>
 
