@@ -100,13 +100,13 @@ function verifyEmail($email){
   $objeto = new Conexao;
   $dbh = $objeto->conectar();
 
-        $cmd = $dbh->prepare("SELECT email FROM Usuario WHERE '$email'");
-        $cmd->execute();
-        $resultado = $cmd->fetch();
+  $cmd = $dbh->prepare("SELECT email FROM Usuario WHERE email='$email'");
+  $cmd->execute();
+  $resultado = $cmd->fetch();
 
-        print_r($resultado);
+print_r($resultado['email']);
 
-      if($resultado[0] == $email){
+      if($resultado['email'] == $email){
        return TRUE;
       }else{
         return FALSE;
@@ -114,14 +114,15 @@ function verifyEmail($email){
 
 
 }
-
+// $email = 'henryguidellli@yahoo.com';
+// verifyEmail($email);
 
 function verifyUser($email, $senha){
 
   $objeto = new Conexao;
   $dbh = $objeto->conectar();
 
-        if(verifyEmail($email) == FALSE){
+        if(verifyEmail($email) == TRUE){
 
           $pasWord = $dbh->prepare("SELECT senha FROM Usuario WHERE email='$email'");
           $pasWord->execute();

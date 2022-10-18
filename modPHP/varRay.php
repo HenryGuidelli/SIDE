@@ -8,7 +8,7 @@ $goTO = [
 
     'estoque' => "SIDE/cadItem.php",
 
-    'cadFeito' => "SIDE/cadReal.php",
+    'cadFeito' => "SIDE/php/cadReal.php",
 
   ];
 

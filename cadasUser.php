@@ -11,7 +11,7 @@
   if (!empty($nome) && !empty($email) && !empty($senha)) {
 
     
-    if(cadUser($nome, $email, $senha)){      
+    if(cadUser($nome, $email, $senha) == TRUE){      
 
       echo "Cadastro realizado";
 

@@ -1,5 +1,5 @@
 <?php 
-require_once('modPHP/varRay.php');
+require_once('../modPHP/varRay.php');
 
 $goTO = $goTO['indexPHP'];
 
