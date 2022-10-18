@@ -1,9 +1,32 @@
 body {
-    background-color: rgb(45, 45, 45);
+    background-color: rgb(90, 149, 12);
+    
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color:;
+}
+
+body::-webkit-scrollbar-track {
+    background:;
+}
+body::-webkit-scrollbar-track-piece {
+    background:;
+}
+body::-webkit-scrollbar-thumb {
+    background: rgb(45, 45, 45);
+
 }
 
 h1 {
     color: antiquewhite;
+    margin: 0;
+}
+
+p {
+    margin: 0;
 }
 
 ul {
@@ -13,7 +36,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(45, 45, 45);
 }
   
 li {
@@ -31,7 +54,47 @@ li a {
 li a:hover:not(.active) {
   background-color: #111;
 }
-  
+
+.container {
+    background-color: rgb(65, 129, 129);
+    font-size: 22px;
+    width: 35%;
+    /* border: 15px solid green; */
+    padding: 1% 1% 1% 1%;
+    margin: 1%  1% 1% 1%;
+}
+
+
+
+.intro {
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 22px;
+    width: auto;
+    height: auto;
+    max-height: 13rem;
+    padding: 1% 1% 1% 1%;
+    margin: 2% 1% 1% 1%;
+}
+
+
+.intro::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color:;
+}
+
+.intro::-webkit-scrollbar-track {
+    background:;
+}
+.intro::-webkit-scrollbar-track-piece {
+    background:;
+}
+.intro::-webkit-scrollbar-thumb {
+    background: rgb(45, 45, 45);
+
+}
+
 .active {
   background-color: #04AA6D;
 }
