@@ -106,7 +106,3 @@ img {
 .active {
   background-color: #04AA6D;
 }
-
-[class*="container"] {
-    width: 100%;
-}
