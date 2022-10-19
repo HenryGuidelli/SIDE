@@ -107,8 +107,3 @@ img {
   background-color: #04AA6D;
 }
 
-@media only screen and (min-width: 1080px) {
-    .container {
-        max-width: 65%;
-    }
-  }
