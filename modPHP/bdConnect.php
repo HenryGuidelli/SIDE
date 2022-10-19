@@ -6,7 +6,7 @@
       $host= "127.0.0.1";
       $dbname= "estoquetcc";
       $user = "root";
-      $password = "z01oxm313";
+      $password = "";
       $dbh;
 
        $this->dbh = new PDO("mysql:host={$host};dbname={$dbname}", $user, $password);
