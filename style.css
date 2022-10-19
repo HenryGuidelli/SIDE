@@ -1,7 +1,7 @@
 body {
     /* background-color: slategray; */
     background-image: url("https://wallpaperaccess.com/full/3086362.jpg");
-    background-size: 100%;
+    background-size: auto;
     background-attachment: fixed;
     margin: 0;
     padding: 0;
@@ -106,3 +106,11 @@ img {
 .active {
   background-color: #04AA6D;
 }
+
+* {
+    box-sizing: border-box;
+  }
+
+[class*="container"] {
+    width: 100%;
+  }
