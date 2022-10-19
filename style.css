@@ -70,8 +70,7 @@ img {
     
     background-color: #04AA6D;
     font-size: 22px;
-    /* max-width: 50%; */
-    min-width: 25%;
+    max-width: 50%;
     width: auto;
     height: auto;
     padding: 1% 1% 1% 1%;
@@ -108,10 +107,9 @@ img {
   background-color: #04AA6D;
 }
 
-* {
-    box-sizing: border-box;
-  }
-
-[class*="container"] {
-    width: 100%;
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .container {
+        max-width: 65%;
+    }
   }
