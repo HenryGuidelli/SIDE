@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: slategray;
     margin: 0;
     padding: 0;
 }
@@ -22,7 +22,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 h1 {
-    color: antiquewhite;
+    color: rgb(255, 255, 255);
     margin: 0;
 }
 
@@ -56,11 +56,18 @@ li a:hover:not(.active) {
   background-color: #04AA6D;
 }
 
+img {
+    width: 30%;
+    margin-left: 10%;
+}
+
 
 
 .container {
+    float: left;
     background-color: rgb(65, 129, 129);
     font-size: 22px;
+    min-width: 45%;
     width: auto;
     padding: 1% 1% 1% 1%;
     margin:1%;
