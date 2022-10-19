@@ -70,7 +70,7 @@ img {
     
     background-color: #04AA6D;
     font-size: 22px;
-    max-width: 50%;
+    /* max-width: 50%; */
     min-width: 25%;
     width: auto;
     height: auto;
