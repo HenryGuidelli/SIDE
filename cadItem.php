@@ -47,7 +47,7 @@ session_start();
 
     </form>
 
-    <form method="POST" action="excelEXIT/TESTES/teste01.php">
+    <form method="POST" action="excelEXIT/teste01.php">
 
     <input type="submit" value="SEND EXCEL">
     <input type="hidden" name="email" value="<?php $_SESSION['user'] ?>">

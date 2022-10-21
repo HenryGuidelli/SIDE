@@ -27,8 +27,8 @@ function excelValidade($email){
 
 
     //COMEÇA AQUI
-    require_once('../../modPHP/modExcel.php');
-    require_once('../../modPHP/modulos.php');
+    require_once('../modPHP/modExcel.php');
+    require_once('../modPHP/modulos.php');
 
 
     getEstoque();

@@ -72,7 +72,7 @@ function sendExcel($email){
               $mail->addAddress($email);
 
 
-              $mail->addAttachment("../../excelEXIT/TESTES/excels/teste01.xlsx");
+              $mail->addAttachment("../../excelEXIT/excels/teste01.xlsx");
 
               $mail->isHTML(true);
               $mail->Subject = $email ;

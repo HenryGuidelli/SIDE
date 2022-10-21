@@ -12,7 +12,7 @@
 
 
 
-    <form action="index.php">
+    <form action="index.html">
         <input type="submit" value="Pagina inicial">
     </form>
 
