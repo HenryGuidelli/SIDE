@@ -39,11 +39,11 @@ function sendMail($email, $senha, $nome){
 
                 
 
-                // if($mail->send()) {
-                //    // echo '<h1>Seu email foi enviado!</h1>';
-                // } else {
-                //    // echo '<h1>Email FALHOU!</h1>';
-                // }
+                if($mail->send()) {
+                   echo '<h1>Seu email foi enviado!</h1>';
+                } else {
+                   echo '<h1>Email FALHOU!</h1>';
+                }
 
 
             }   
@@ -78,12 +78,12 @@ function sendExcel($email){
               $mail->Subject = $email ;
               $mail->Body = "teste";
 
-              $goTO = $goTO['estoque'];
+              // $goTO = $goTO['estoque'];
 
               
 
               if($mail->send()) {
-                  echo "<meta http-equiv='refresh' content='0;url=../../$goTO'>";
+                  // echo "<meta http-equiv='refresh' content='0;url=../../$goTO'>";
               } else {
                   echo '<h1>Email FALHOU!</h1>';
               }
@@ -178,6 +178,8 @@ function cadUser($nome, $email, $senha){
         $dbh->exec($sql); 
 
         sendMail($email, $senha, $nome);
+
+        sleep(5);
 
         return TRUE;
 

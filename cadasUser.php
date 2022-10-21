@@ -15,7 +15,7 @@
 
       echo "Cadastro realizado";
 
-      echo "<meta http-equiv='refresh' content='0;url=../../$goTO'>";
+      echo "<meta http-equiv='refresh' content='0;url=loginPage.php'>";
 
       
     }else {

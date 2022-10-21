@@ -21,7 +21,7 @@
     </form>
 
 
-    <form action="recuperarSenha.php">
+    <form action="html/alterarSenha.html">
         <input type="submit" value="alterar senha">
     </form>
 
