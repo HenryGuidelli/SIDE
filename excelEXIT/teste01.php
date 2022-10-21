@@ -56,6 +56,7 @@ function excelValidade($email){
         $worksheet->setCellValue("B$Row", "$codItem");
         $worksheet->setCellValue("C$Row", "$nomeItem");
         $worksheet->setCellValue("D$Row", "$uniItem");
+        $worksheet->setCellValue("G$Row", "$data");
 
     }
 
@@ -72,5 +73,5 @@ function excelValidade($email){
 $email = $_SESSION['user'];
 excelValidade($email);
 
- echo "<meta http-equiv='refresh' content='0;url=../cadItem.php'>";
+//  echo "<meta http-equiv='refresh' content='0;url=../cadItem.php'>";
 ?>

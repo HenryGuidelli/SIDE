@@ -4,6 +4,9 @@ include_once('bdConnect.php');
 
 function getEstoque(){
 
+    
+    session_cache_expire();
+
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
 
@@ -40,6 +43,8 @@ function getEstoque(){
         $gettedRow = $gettedRow[$i];
         $_SESSION['nRow'] = $nRow;
         $_SESSION['gettedRow'][] = $gettedRow;
+
+        session_abort();
 
     }
 
