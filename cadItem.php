@@ -41,7 +41,7 @@ session_start();
 
 
 
-    <form action="index.php">
+    <form action="session.php">
 
         <input type="submit" value="Pagina inicial">
 
