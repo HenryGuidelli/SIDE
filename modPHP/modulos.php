@@ -72,7 +72,7 @@ function sendExcel($email){
               $mail->addAddress($email);
 
 
-              $mail->addAttachment("../../excelEXIT/excels/teste01.xlsx");
+              $mail->addAttachment("../excelEXIT/excels/teste01.xlsx");
 
               $mail->isHTML(true);
               $mail->Subject = $email ;
@@ -83,7 +83,7 @@ function sendExcel($email){
               
 
               if($mail->send()) {
-                  // echo "<meta http-equiv='refresh' content='0;url=../../$goTO'>";
+                  echo "<meta http-equiv='refresh' content='0;url=../cadItem.php'>";
               } else {
                   echo '<h1>Email FALHOU!</h1>';
               }
