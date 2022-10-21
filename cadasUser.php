@@ -2,11 +2,16 @@
   require_once('modPHP/modulos.php');
   require_once('modPHP/varRay.php');
 
+if(isset($_POST['nome'], $_POST['email'], $_POST['senha'])){
   $nome = $_POST['nome'];
   $email = $_POST['email'];
   $senha = $_POST['senha'];
   $goTO = $goTO['cadFeito'];
+}else {
   
+}
+
+
 
   if (!empty($nome) && !empty($email) && !empty($senha)) {
 
@@ -23,7 +28,7 @@
     }
 
   }else {
-    echo 'Preencha os campos obrigatórios';
+    echo '<h2><b>Preencha os campos obrigatórios</b></h2>';
 
   }
 
@@ -38,17 +43,18 @@
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="LoginCss.css">
 
     <title>CADASTRO USER</title>
   </head>
   <body>
 
     <div>
+      <h1>Criar conta</h1>
       <form method="POST">
-        Nome:  <input type="text" name="nome"><br>
-        Email: <input type="email" name="email"><br>
-        Senha: <input type="password" name="senha"><br>
+        <input type="email" placeholder="Email" name="email"><br>
+        <input type="text" placeholder="Nome" name="nome"><br>
+        <input type="password" placeholder="Senha" name="senha"><br>
         <input type="submit" value="Criar conta">
       </form>
 
@@ -56,7 +62,7 @@
         <input type="submit" value="Esqueci a senha">
       </form>
 
-      <form method="POST" action="index.php">
+      <form method="POST" action="index.html">
         <input type="submit" value="Já tenho conta">
       </form>
 

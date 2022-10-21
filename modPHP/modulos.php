@@ -252,13 +252,12 @@ function recuperarSenha($email){
             }
 
             
-            print_r($resultado[0]);
-            print_r($nome1[0]);
+            // print_r($resultado[0]);
+            // print_r($nome1[0]);
 
-            echo $senhaProv;
+            // echo $senhaProv;
 
             
-
             //echo "New record created successfully";
           } catch (PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();

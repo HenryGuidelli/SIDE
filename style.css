@@ -99,3 +99,7 @@ li a:hover:not(.active) {
   color: black;
 }
 
+tr, td {
+    color: #ffffff;
+    font-size: 140%;
+}

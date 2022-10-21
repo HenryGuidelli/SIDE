@@ -14,13 +14,12 @@
     <h1>LOGIN</h1>
 
         <form method="POST" action="php/login.php" >
-            <input placeholder="Email address" type="email" name="email">
+            <input placeholder="Email" type="email" name="email">
             <br>
             <input type="password" placeholder="Password" name="senha"/>
             <br>
 
-        <button
-            type="submit">ENTRAR</button>
+            <button type="submit">ENTRAR</button>
             <br>
             <a href="cadasUser.php">CRIAR CONTA</a>
             

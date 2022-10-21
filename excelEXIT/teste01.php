@@ -73,5 +73,5 @@ function excelValidade($email){
 $email = $_SESSION['user'];
 excelValidade($email);
 
-//  echo "<meta http-equiv='refresh' content='0;url=../cadItem.php'>";
+ echo "<meta http-equiv='refresh' content='0;url=../cadItem.php'>";
 ?>
