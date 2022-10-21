@@ -62,7 +62,7 @@ if(isset($_POST['nome'], $_POST['email'], $_POST['senha'])){
         <input type="submit" value="Esqueci a senha">
       </form>
 
-      <form method="POST" action="index.html">
+      <form method="POST" action="loginPage.php">
         <input type="submit" value="Já tenho conta">
       </form>
 

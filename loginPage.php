@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="LoginCss.css">
     <title>Login</title>
   </head>
-<body class="bg-login">
+<body>
 
 <div>
 
