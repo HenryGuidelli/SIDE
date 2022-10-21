@@ -9,41 +9,25 @@
   </head>
 <body class="bg-login">
 
-<h1>Fazer Login</h1>
-
 <div>
 
+    <h1>LOGIN</h1>
+
         <form method="POST" action="php/login.php" >
-          <!-- Email input -->
-          <div>
-            <input
-              placeholder="Email address" type="email" name="email"><br>
-          </div>
+            <input placeholder="Email address" type="email" name="email">
+            <br>
+            <input type="password" placeholder="Password" name="senha"/>
+            <br>
 
-          <!-- Password input -->
-          <div>
-            <input
-              type="password"
-              placeholder="Password"
-              name="senha"
-            />
-          </div>
-
-            <!-- Submit button -->
         <button
-            type="submit">ENTER</button>
-          <div class="flex justify-between items-center mb-6">
-            <div class="form-group form-check">
-            <a
-              href="cadasUser.php"
-              >CRIAR CONTA</a>
-            </div>
+            type="submit">ENTRAR</button>
+            <br>
+            <a href="cadasUser.php">CRIAR CONTA</a>
+            
             <a href="recuperarSenha.php">ESQUECI A SENHA</a>
-          </div>
+
         </form>
 
-      </div>
-    </div>
   </div>
 
 </body>
