@@ -8,7 +8,10 @@ senha varchar(80),
 celular varchar(14));
 
 select*from produto;
+
 select*from usuario;
+
+select*from Alimento;
 
 insert into usuario(nome,email,senha,celular)
 values
@@ -22,7 +25,6 @@ values
 
 select * from user_mov;
 
-drop table mov;
 
 create table Produto(
 codigo int not null auto_increment primary key,

@@ -83,7 +83,7 @@ function sendExcel($email){
               
 
               if($mail->send()) {
-                  echo "<meta http-equiv='refresh' content='0;url=../cadItem.php'>";
+                  echo '<h1>EMAIL ENVIADO!</h1>';
               } else {
                   echo '<h1>Email FALHOU!</h1>';
               }

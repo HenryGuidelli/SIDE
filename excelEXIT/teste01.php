@@ -39,6 +39,8 @@ function excelValidade($email){
     $nRow = $_SESSION['nRow'];
     $cRow = 0;
 
+    print_r($gettedRow);
+
     $data = date('d/m/Y');
 
     $array = 0;
@@ -64,9 +66,11 @@ function excelValidade($email){
     sendExcel($email);
 
 
+
 }
 
 $email = $_SESSION['user'];
 excelValidade($email);
 
+ echo "<meta http-equiv='refresh' content='0;url=../cadItem.php'>";
 ?>

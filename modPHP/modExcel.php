@@ -38,7 +38,6 @@ function getEstoque(){
         // echo "<br>"; 
 
         $gettedRow = $gettedRow[$i];
-
         $_SESSION['nRow'] = $nRow;
         $_SESSION['gettedRow'][] = $gettedRow;
 
