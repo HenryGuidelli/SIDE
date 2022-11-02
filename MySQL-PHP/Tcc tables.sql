@@ -10,7 +10,7 @@ celular varchar(14));
 select*from produto;
 
 select*from usuario;
-drop table usuario;
+create table usuario;
 select*from Alimento;
 
 insert into usuario(nome,email,senha,celular)
