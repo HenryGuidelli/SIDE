@@ -10,20 +10,19 @@
   </head>
   <body>
 
+  <ul>
+    <li><a href="index.html"><b>INICIO</b></a></li>
+    <li><a href="cadItem.php"><b>CADASTRAR ITENS</b></a></li>
+    <li><a href="estoque.php"><b>ESTOQUE</b></a></li>
+    <li><a href=""><b>RELATÓRIOS</b></a></li>
+    <li style="float:right"><a class="active" href="loginPage.php"><b>SAIR</b></a></li>
+    <li style="float:right"><a href="html/alterarSenha.html"><b>PERFIL</b></a></li>
+
+  </ul>
 
 
-    <form action="index.html">
-        <input type="submit" value="Pagina inicial">
-    </form>
-
-    <form action="cadItem.php">
-        <input type="submit" value="Estoque">
-    </form>
 
 
-    <form action="html/alterarSenha.html">
-        <input type="submit" value="alterar senha">
-    </form>
 
 
 

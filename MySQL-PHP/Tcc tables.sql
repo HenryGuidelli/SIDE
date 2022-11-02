@@ -10,7 +10,7 @@ celular varchar(14));
 select*from produto;
 
 select*from usuario;
-create table usuario;
+drop table usuario;
 select*from Alimento;
 
 insert into usuario(nome,email,senha,celular)
@@ -36,6 +36,7 @@ codAli int not null auto_increment primary key,
 nome varchar (80),
 unidade varchar (10),
 validade varchar (20),
+peso varchar (20),
 quantidade varchar (10));
 
 create table cozinha(

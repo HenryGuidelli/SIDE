@@ -104,7 +104,7 @@ function verifyEmail($email){
   $cmd->execute();
   $resultado = $cmd->fetch();
 
-print_r($resultado['email']);
+  print_r($resultado['email']);
 
       if($resultado['email'] == $email){
        return TRUE;
@@ -284,8 +284,6 @@ function addItem($nomeProd, $uni){
           $cmd = $dbh->prepare("SELECT nome FROM Produto WHERE nome='$nomeProd'");
           $cmd->execute();
           $resultado = $cmd->fetch();
-
-          echo "<h1><br>$resultado[0] cadastrada!<br></h1>";
   
           //echo "New record created successfully";
         } catch (PDOException $e) {
@@ -313,13 +311,14 @@ function pesquItem(){
 
           
         
-          echo "<table><tr><td>ID</td><td>Nome</td><td>Unidade</td></tr>";
+          echo "<table><tr>
+          <td>Nome</td><td>Unidade</td></tr>";
 
           /*Enquanto houver dados na tabela para serem mostrados será executado tudo que esta dentro do while */
           while($row = $resultado->fetch()){
           
           /*Escreve cada linha da tabela*/
-          echo "<tr><td>" . $row['codigo']  . $row['nome'] . "</td><td>" . $row['unidade'] . "</td></tr>";
+          echo "<tr><td>" . $row['nome'] . "</td><td>" . $row['unidade'] . "</td></tr>";
           
           } /*Fim do while*/
           
@@ -328,5 +327,99 @@ function pesquItem(){
         } catch (PDOException $e) {
           echo 'Connection failed: ' . $e->getMessage();
         }
+
+}
+
+function pesquEstoque(){
+  $objeto = new Conexao;
+  $dbh = $objeto->conectar();
+
+
+ /*fecha a tabela apos termino de impressão das linhas*/
+
+  
+      try {
+
+          $cmd = $dbh->prepare("SELECT*FROM Alimento;");
+          $cmd->execute();
+          $resultado = $cmd;
+
+          
+        
+          echo "<table><tr>
+          <td>Nome</td><td>Unidade</td><td>Validade</td><td>Peso</td><td>Quantidade</td></tr>";
+
+          /*Enquanto houver dados na tabela para serem mostrados será executado tudo que esta dentro do while */
+          while($row = $resultado->fetch()){
+          
+          /*Escreve cada linha da tabela*/
+          echo "<tr><td>" . $row['nome'] . "</td><td>" . $row['unidade'] . "</td> <td>" . $row['validade'] . "</td> <td>" . $row['peso'] . "</td><td>" . $row['quantidade'] . "</td></tr>";
+          
+          } /*Fim do while*/
+          
+          echo "</table>";
+
+        } catch (PDOException $e) {
+          echo 'Connection failed: ' . $e->getMessage();
+        }
+
+}
+
+function prodAlim(){
+  $objeto = new Conexao;
+  $dbh = $objeto->conectar();
+      try {
+        
+        $cmd = $dbh->prepare("SELECT nome, unidade FROM Produto;");
+        $cmd->execute();
+
+
+        while($prod = $cmd->fetch()) {
+        echo "<option value='".$prod['nome']."'> ".$prod['nome'] ." </option>";
+        };
+
+        } catch (PDOException $e) {
+          echo 'Connection failed: ' . $e->getMessage();
+        }
+       $dbh = null;
+}
+
+function addEstoque($prod, $validade){
+
+  $objeto = new Conexao;
+  $dbh = $objeto->conectar();
+  
+      try {
+
+        echo $validade;
+        
+        $cmd = $dbh->prepare("SELECT nome FROM Alimento;");
+        $cmd->execute();
+        // $resultado = $cmd->fetch(PDO::FETCH_ASSOC);
+
+
+        while($resultado = $cmd->fetch(PDO::FETCH_ASSOC)) {
+
+          };
+        
+        // if (in_array("$prod",  $resultado)) {
+        //     echo "JÀ CADASTRADO";
+        // }else {
+          // $sql = "INSERT INTO Alimento (nome, unidade, validade, peso, quantidade)
+          //     VALUES ('$prod', '$uni', '$validade', '$peso', '$quantidade')";
+          // $dbh->exec($sql); 
+        // }
+  
+
+  
+          // $cmd = $dbh->prepare("SELECT nome FROM Produto WHERE nome='$nomeProd'");
+          // $cmd->execute();
+          // $resultado = $cmd->fetch();
+  
+          //echo "New record created successfully";
+        } catch (PDOException $e) {
+          echo 'Connection failed: ' . $e->getMessage();
+        }
+       $dbh = null;
 
 }

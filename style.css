@@ -1,7 +1,7 @@
 body {
     /* background-color: slategray; */
-    background-image: url("https://wallpaperaccess.com/full/3086362.jpg");
-    background-size: auto;
+    background-image: url("imgs/estoque.jpg");
+    background-size: 100%;
     background-attachment: fixed;
     margin: 0;
     padding: 0;
@@ -29,9 +29,41 @@ h1 {
     margin: 0;
 }
 
+h3 {
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+th {
+    text-align: center;
+    border: 2px solid;
+    border-color: rgb(255, 255, 255);
+    background-color: black;
+}
+
+td {
+    /* text-align: center; */
+    border: 2px solid;
+    border-color: rgb(255, 255, 255);
+    background-color: black;
+  }
+  
+  table {
+    width: 50%;
+    border-collapse: collapse;
+    border: 2px solid;
+    border-color: rgb(255, 255, 255);
+    margin: 1% 0 0 1%;
+    background-color: black;
+  }
+
 p {
     color: rgb(0, 0, 0);
     margin: 0;
+}
+
+.Cap {
+    text-transform: capitalize;
 }
 
 ul {
@@ -61,12 +93,14 @@ li a:hover:not(.active) {
   color: black;
 }
 
-
+.row {
+    margin: 10% auto 1% auto;
+}
 
 .container {
     background-color: #f9f9f9;
     font-size: 22px;
-    max-width: 80%;
+    max-width: 50%;
     width: auto;
     height: auto;
     padding: 1% 1% 1% 1%;
