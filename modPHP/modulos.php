@@ -361,7 +361,7 @@ Class Estoque{
         }else {
           echo "<h3>O ESTOQUE ESTÁ VAZIO</h3>";
         }
-}
+  }
 
   public function addEstoque($idProd, $venci, $qtd){
       $objeto = new Conexao;
@@ -397,7 +397,7 @@ Class Estoque{
 
       }
 
-}
+  }
 
   public function delEstoque($codAli){
     $objeto = new Conexao;
@@ -405,7 +405,7 @@ Class Estoque{
 
     $cmd = $dbh->prepare("DELETE FROM Alimento WHERE codAli = '$codAli'");
     $cmd->execute();
-}
+  }
 
 }
 
@@ -426,44 +426,4 @@ function prodAlim(){
           echo 'Connection failed: ' . $e->getMessage();
         }
        $dbh = null;
-}
-
-function addEstoque($prod, $validade){
-
-  $objeto = new Conexao;
-  $dbh = $objeto->conectar();
-  
-      try {
-
-        echo $validade;
-        
-        $cmd = $dbh->prepare("SELECT nome FROM Alimento;");
-        $cmd->execute();
-        // $resultado = $cmd->fetch(PDO::FETCH_ASSOC);
-
-
-        while($resultado = $cmd->fetch(PDO::FETCH_ASSOC)) {
-
-          };
-        
-        // if (in_array("$prod",  $resultado)) {
-        //     echo "JÀ CADASTRADO";
-        // }else {
-          // $sql = "INSERT INTO Alimento (nome, unidade, validade, peso, quantidade)
-          //     VALUES ('$prod', '$uni', '$validade', '$peso', '$quantidade')";
-          // $dbh->exec($sql); 
-        // }
-  
-
-  
-          // $cmd = $dbh->prepare("SELECT nome FROM Produto WHERE nome='$nomeProd'");
-          // $cmd->execute();
-          // $resultado = $cmd->fetch();
-  
-          //echo "New record created successfully";
-        } catch (PDOException $e) {
-          echo 'Connection failed: ' . $e->getMessage();
-        }
-       $dbh = null;
-
 }
