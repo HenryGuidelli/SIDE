@@ -1,4 +1,5 @@
 create database EstoqueTcc;
+use EstoqueTcc;
 
 create table Usuario(
 idUser int not null auto_increment primary key,
@@ -7,10 +8,9 @@ email varchar(100),
 senha varchar(80),
 celular varchar(14));
 
-select*from produto;
 
 select*from usuario;
-create table usuario;
+select*from produto;
 select*from Alimento;
 
 insert into usuario(nome,email,senha,celular)

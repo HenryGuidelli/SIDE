@@ -3,11 +3,6 @@ session_start();
   require_once('modPHP/modulos.php');
   
   $estoque = new Estoque;
-
-
-$venci = date('d/m/Y', strtotime($_POST['venci']));
-
-
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +13,7 @@ $venci = date('d/m/Y', strtotime($_POST['venci']));
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
 
-    <title>addItem</title>
+    <title>ESTOQUE</title>
   </head>
   <body>
 
@@ -30,14 +25,28 @@ $venci = date('d/m/Y', strtotime($_POST['venci']));
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
   </ul>
 
-  <?php if(!empty($_POST['prod']) & !empty($_POST['venci'])) { $prod = $_POST['prod'];}else{ echo"<h3>PREENCHA OS CAMPOS</h3>";}?>
+    <?php 
+
+      if(!empty($_POST['prod']) & !empty($_POST['venci']) & !empty($_POST['qtd'])) { 
+
+        $prod = $_POST['prod'];
+        $venci = date('d/m/Y', strtotime($_POST['venci']));
+        $qtd = $_POST['qtd'];
+
+        $estoque->addEstoque($prod, $venci, $qtd);
+
+      }else { 
+        echo"<h3>PREENCHA OS CAMPOS</h3>";
+      }
+
+    ?>
 
       <form method="POST">
         <select type="text" name="prod">
         <?php prodAlim(); ?>
         </select>
         <input type="number" name="qtd" min= "0">
-        <input type="date" name="venci" value="<?php $venci?>">
+        <input type="date" name="venci" value="<?php ;?>">
 
         <input type="submit" value="Cadastrar Item">
       </form>
@@ -51,26 +60,7 @@ $venci = date('d/m/Y', strtotime($_POST['venci']));
       </tr>
 
       <?php 
-
-          $lista = $estoque->listEstoque();
-
-          if(count($lista) > 0){
-            for ($i=0; $i < count($lista); $i++) { 
-              echo "<tr>";
-              foreach ($lista[$i] as $C => $L) {
-
-                if($C != "codAli"){
-
-                  echo "<td>".$L."</td>";
-
-                }
-              }
-              echo "<td><a href=''>EDITAR</a> <a href=''>EXCLUIR</a></td>";
-              echo "</tr>";
-            }
-              echo "</table>";
-          }
-          
+        $estoque->listEstoque();
       ?>
 
   </body>

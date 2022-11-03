@@ -2,6 +2,5 @@
 require_once('modulos.php');
 
 $teste = new Estoque;
-$tes = $teste->listEstoque();
-
+$tes = $teste->addEstoque("");
 ?>
