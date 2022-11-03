@@ -426,4 +426,4 @@ function prodAlim(){
           echo 'Connection failed: ' . $e->getMessage();
         }
        $dbh = null;
-}
+} 
