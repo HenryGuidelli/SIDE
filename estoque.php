@@ -27,7 +27,7 @@ session_start();
 
     <?php 
 
-      if(!empty($_POST['prod']) & !empty($_POST['venci']) & !empty($_POST['qtd'])) { 
+      if(!empty($_POST['prod']) &&!empty($_POST['venci']) &&!empty($_POST['qtd'])) { 
 
         $prod = addslashes($_POST['prod']);
         $venci = addslashes(date('d/m/Y', strtotime($_POST['venci'])));
@@ -64,4 +64,14 @@ session_start();
       ?>
 
   </body>
-</html>  
+</html>
+
+<?php 
+
+  if(!empty($_GET['codAli'])){
+    $codAli = addslashes($_GET['codAli']);
+    $estoque->delEstoque($codAli);
+    header("location: estoque.php");
+    }
+
+?>

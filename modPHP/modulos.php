@@ -333,70 +333,79 @@ function pesquItem(){
 Class Estoque{
 
   public function listEstoque(){
-    $objeto = new Conexao;
-    $dbh = $objeto->conectar();
 
-    $lista = array();
+      $objeto = new Conexao;
+      $dbh = $objeto->conectar();
 
-    $cmd = $dbh->query("SELECT*FROM Alimento ORDER BY nome;");
-    $lista = $cmd->fetchAll(PDO::FETCH_ASSOC);
+      $lista = array();
 
-      if(count($lista) > 0){
-        for ($i=0; $i < count($lista); $i++) { 
-          echo "<tr>";
-          foreach ($lista[$i] as $C => $L) {
+      $cmd = $dbh->query("SELECT*FROM Alimento ORDER BY nome;");
+      $lista = $cmd->fetchAll(PDO::FETCH_ASSOC);
 
-            if($C != "codAli"){
+        if(count($lista) > 0){
+          for ($i=0; $i < count($lista); $i++) { 
+            echo "<tr>";
+            foreach ($lista[$i] as $C => $L) {
 
-              echo "<td>".$L."</td>";
+              if($C != "codAli"){
 
+                echo "<td>".$L."</td>";
+              }
             }
-          }
-          echo "<td><a href=''>EDITAR</a> <a href=''>EXCLUIR</a></td>";
-          echo "</tr>";
-        }
-          echo "</table>";
-      }
+            $codAli = $lista[$i]['codAli'];
+            echo "<td><a href=''>EDITAR</a> <a href='estoque.php?codAli=$codAli'>EXCLUIR</a></td>";
+            echo "</tr>";
 
-  }
+          }
+            echo "</table>";
+        }else {
+          echo "<h3>O ESTOQUE ESTÁ VAZIO</h3>";
+        }
+}
 
   public function addEstoque($idProd, $venci, $qtd){
+      $objeto = new Conexao;
+      $dbh = $objeto->conectar();
+
+      $prod = array();
+
+      $cmd = $dbh->query("SELECT nome, unidade FROM produto WHERE codigo = '$idProd';");
+      $prod = $cmd->fetch(PDO::FETCH_ASSOC);
+      $prodNome = $prod['nome'];
+      $prodUni = $prod['unidade'];
+
+
+      if ($prod != NULL) {
+
+        $res = array();
+
+        $aliN = $dbh->query("SELECT nome FROM Alimento WHERE nome = '$prodNome';");
+        $res = $aliN->fetch();
+
+        if (!$res) {
+
+            $sql = "INSERT INTO Alimento (nome, unidade, validade, quantidade)
+            VALUES ('$prodNome', '$prodUni', '$venci', '$qtd')";
+            $dbh->exec($sql); 
+            return TRUE;
+
+        }else {
+
+          echo "<h3>ITEM NO ESTOQUE</h3>";
+          return FALSE;
+        }
+
+      }
+
+}
+
+  public function delEstoque($codAli){
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
 
-    $prod = array();
-
-    $cmd = $dbh->query("SELECT nome, unidade FROM produto WHERE codigo = '$idProd';");
-    $prod = $cmd->fetch(PDO::FETCH_ASSOC);
-    $prodNome = $prod['nome'];
-    $prodUni = $prod['unidade'];
-
-
-    if ($prod != NULL) {
-
-      $res = array();
-
-      $aliN = $dbh->query("SELECT nome FROM Alimento WHERE nome = '$prodNome';");
-      $res = $aliN->fetch();
-
-      if (!$res) {
-
-          $sql = "INSERT INTO Alimento (nome, unidade, validade, quantidade)
-          VALUES ('$prodNome', '$prodUni', '$venci', '$qtd')";
-          $dbh->exec($sql); 
-          return TRUE;
-
-      }else {
-
-        echo "<h3>ITEM NO ESTOQUE</h3>";
-        return FALSE;
-      }
-
-    }
-
-  }
-
-
+    $cmd = $dbh->prepare("DELETE FROM Alimento WHERE codAli = '$codAli'");
+    $cmd->execute();
+}
 
 }
 
