@@ -29,9 +29,9 @@ session_start();
 
       if(!empty($_POST['prod']) & !empty($_POST['venci']) & !empty($_POST['qtd'])) { 
 
-        $prod = $_POST['prod'];
-        $venci = date('d/m/Y', strtotime($_POST['venci']));
-        $qtd = $_POST['qtd'];
+        $prod = addslashes($_POST['prod']);
+        $venci = addslashes(date('d/m/Y', strtotime($_POST['venci'])));
+        $qtd = addslashes($_POST['qtd']);
 
         $estoque->addEstoque($prod, $venci, $qtd);
 
