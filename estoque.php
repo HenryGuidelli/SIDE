@@ -2,7 +2,10 @@
 session_start();
   require_once('modPHP/modulos.php');
   
-  $validade = date('d/m/Y', strtotime($_POST['vencimento']));
+  $estoque = new Estoque;
+
+
+$venci = date('d/m/Y', strtotime($_POST['venci']));
 
 
 ?>
@@ -27,33 +30,48 @@ session_start();
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
   </ul>
 
-  <?php if(!empty($_POST['prod']) & !empty($_POST['vencimento'])) { $prod = $_POST['prod']; addEstoque($prod, $validade);}else{ echo"<h3>PREENCHA OS CAMPOS</h3>";}?>
+  <?php if(!empty($_POST['prod']) & !empty($_POST['venci'])) { $prod = $_POST['prod'];}else{ echo"<h3>PREENCHA OS CAMPOS</h3>";}?>
 
       <form method="POST">
         <select type="text" name="prod">
         <?php prodAlim(); ?>
         </select>
-        <input type="date" name="vencimento" value="<?php echo date('d-m-Y'); ?>">
+        <input type="number" name="qtd" min= "0">
+        <input type="date" name="venci" value="<?php $venci?>">
 
         <input type="submit" value="Cadastrar Item">
       </form>
-    </div>
 
-    </div>
+      <table>
+      <tr>
+      <td>Nome</td>
+      <td>Unidade</td>
+      <td>Validade</td>
+      <td>Quantidade</td>
+      </tr>
 
-    <?php 
+      <?php 
 
- 
+          $lista = $estoque->listEstoque();
 
+          if(count($lista) > 0){
+            for ($i=0; $i < count($lista); $i++) { 
+              echo "<tr>";
+              foreach ($lista[$i] as $C => $L) {
 
+                if($C != "codAli"){
 
-    
-    pesquEstoque();
-    
-    
-    ?>
+                  echo "<td>".$L."</td>";
 
-    
+                }
+              }
+              echo "<td><a href=''>EDITAR</a> <a href=''>EXCLUIR</a></td>";
+              echo "</tr>";
+            }
+              echo "</table>";
+          }
+          
+      ?>
 
   </body>
 </html>  

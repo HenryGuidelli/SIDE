@@ -330,52 +330,45 @@ function pesquItem(){
 
 }
 
-function pesquEstoque(){
-  $objeto = new Conexao;
-  $dbh = $objeto->conectar();
+Class Estoque{
 
+  public function listEstoque(){
+    $objeto = new Conexao;
+    $dbh = $objeto->conectar();
 
- /*fecha a tabela apos termino de impressão das linhas*/
+    $lista = array();
 
-  
-      try {
+    $cmd = $dbh->query("SELECT*FROM Alimento ORDER BY nome;");
+    $lista = $cmd->fetchAll(PDO::FETCH_ASSOC);
 
-          $cmd = $dbh->prepare("SELECT*FROM Alimento;");
-          $cmd->execute();
-          $resultado = $cmd;
+    return $lista;
+  }
 
-          
-        
-          echo "<table><tr>
-          <td>Nome</td><td>Unidade</td><td>Validade</td><td>Peso</td><td>Quantidade</td></tr>";
+  public function addEstoque($idProd, $venci, $qtd){
+    $objeto = new Conexao;
+    $dbh = $objeto->conectar();
 
-          /*Enquanto houver dados na tabela para serem mostrados será executado tudo que esta dentro do while */
-          while($row = $resultado->fetch()){
-          
-          /*Escreve cada linha da tabela*/
-          echo "<tr><td>" . $row['nome'] . "</td><td>" . $row['unidade'] . "</td> <td>" . $row['validade'] . "</td> <td>" . $row['peso'] . "</td><td>" . $row['quantidade'] . "</td></tr>";
-          
-          } /*Fim do while*/
-          
-          echo "</table>";
+    $lista = array();
 
-        } catch (PDOException $e) {
-          echo 'Connection failed: ' . $e->getMessage();
-        }
+    $cmd = $dbh->query("SELECT unidade FROM produto;");
+    $lista = $cmd->fetchAll(PDO::FETCH_ASSOC);
+
+    return $lista;
+  }
 
 }
+
 
 function prodAlim(){
   $objeto = new Conexao;
   $dbh = $objeto->conectar();
       try {
         
-        $cmd = $dbh->prepare("SELECT nome, unidade FROM Produto;");
-        $cmd->execute();
+        $cmd = $dbh->query("SELECT codigo, nome FROM Produto;");
 
 
         while($prod = $cmd->fetch()) {
-        echo "<option value='".$prod['nome']."'> ".$prod['nome'] ." </option>";
+        echo "<option value='".$prod['codigo']."'> ".$prod['nome'] ." </option>";
         };
 
         } catch (PDOException $e) {

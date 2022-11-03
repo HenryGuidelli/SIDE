@@ -1,6 +1,7 @@
 <?php 
 require_once('modulos.php');
 
-pesquItem();
+$teste = new Estoque;
+$tes = $teste->listEstoque();
 
 ?>
