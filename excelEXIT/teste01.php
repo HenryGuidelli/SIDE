@@ -9,7 +9,8 @@ require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-function excelValidade($email){
+function excelValidade($email)
+{
     //cria uma nova tabela...
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('excels/modelos/RELATÓRIOS.xlsx');
     $worksheet = $spreadsheet->getActiveSheet('VENCIMENTO PRODUTOS');
@@ -29,7 +30,7 @@ function excelValidade($email){
     //COMEÇA AQUI
     require_once('../modPHP/modExcel.php');
     require_once('../modPHP/modulos.php');
-    
+
 
 
     getEstoque();
@@ -45,7 +46,7 @@ function excelValidade($email){
     $data = date('d/m/Y');
 
     $array = 0;
-    while ($Row <= $bRow+2) {
+    while ($Row <= $bRow + 2) {
 
         $codItem = $gettedRow[$array]['codigo'];
         $nomeItem = $gettedRow[$array]['nome'];
@@ -87,10 +88,5 @@ switch ($page) {
         header("location: ../estoque.php");
     case 'session':
         header("location: ../session.php");
-    break;
+        break;
 }
-
-
-
-
-?>
