@@ -30,9 +30,6 @@ function sendMail($email, $senha, $nome){
     $mail->setFrom('contato.henryguidelli@gmail.com');
     $mail->addAddress($email);
 
-    //$mail->addAttachment($file);
-    //$mail->addAttachment('files/murilo.jpg');
-
     $mail->isHTML(true);
     $mail->Subject = $nome;
     $mail->Body = $senha;
