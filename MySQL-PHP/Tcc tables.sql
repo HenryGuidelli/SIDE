@@ -5,16 +5,7 @@ create table Usuario(
 idUser int not null auto_increment primary key,
 nome varchar(80),
 email varchar(100),
-senha varchar(80),
-celular varchar(14));
-
-
-select*from usuario;
-select*from produto;
-select*from Alimento;
-
-select * from user_mov;
-
+senha varchar(80));
 
 create table Produto(
 codigo int not null auto_increment primary key,
@@ -25,16 +16,23 @@ create table Alimento(
 codAli int not null auto_increment primary key,
 nome varchar (80),
 unidade varchar (10),
+peso float (3,3),
 validade varchar (20),
 quantidade varchar (10));
 
+select*from usuario;
+select*from produto;
+select*from Alimento;
+
+drop table usuario;
+drop table produto;
+drop table alimento;
 
 create table mov(
 idMov int not null auto_increment primary key,
 ES varchar(50),
 qtd int,
 dat varchar(45));
-
 
 create table user_mov(
 iduser_fk int,

@@ -168,8 +168,8 @@ function cadUser($nome, $email, $senha){
 
   if (verifyEmail($email) == FALSE) {
 
-    $sql = "INSERT INTO Usuario (nome, email, senha, celular)
-        VALUES ('$nome', '$email', '$hash', '1234567890')";
+    $sql = "INSERT INTO Usuario (nome, email, senha)
+        VALUES ('$nome', '$email', '$hash')";
     $dbh->exec($sql);
 
     sendMail($email, $senha, $nome);
@@ -267,8 +267,7 @@ function recuperarSenha($email){
 
 class Estoque{
 
-  public function listEstoque()
-  {
+  public function listEstoque(){
 
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
@@ -304,8 +303,7 @@ class Estoque{
     }
   }
 
-  public function addEstoque($idProd, $venci, $qtd)
-  {
+  public function addEstoque($idProd, $venci, $qtd){
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
 
@@ -341,8 +339,7 @@ class Estoque{
 
   }
 
-  public function delEstoque($codAli)
-  {
+  public function delEstoque($codAli){
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
 

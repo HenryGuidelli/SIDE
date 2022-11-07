@@ -55,6 +55,7 @@ session_start();
       <tr>
       <td>Nome</td>
       <td>Unidade</td>
+      <td>peso(Kg)</td>
       <td>Validade</td>
       <td>Quantidade</td>
       </tr>
