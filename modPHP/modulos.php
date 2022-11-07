@@ -11,8 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 
 include_once('bdConnect.php');
 
-function sendMail($email, $senha, $nome)
-{
+function sendMail($email, $senha, $nome){
 
   $mail = new PHPMailer(true);
 
@@ -52,8 +51,7 @@ function sendMail($email, $senha, $nome)
   }
 }
 
-function sendExcel($email)
-{
+function sendExcel($email){
 
   $mail = new PHPMailer(true);
 
@@ -95,8 +93,7 @@ function sendExcel($email)
   }
 }
 
-function verifyEmail($email)
-{
+function verifyEmail($email){
 
   $objeto = new Conexao;
   $dbh = $objeto->conectar();
@@ -116,8 +113,7 @@ function verifyEmail($email)
 
 }
 
-function verifyUser($email, $senha)
-{
+function verifyUser($email, $senha){
 
   $objeto = new Conexao;
   $dbh = $objeto->conectar();
@@ -156,8 +152,7 @@ function verifyUser($email, $senha)
 }
 
 
-function cadUser($nome, $email, $senha)
-{
+function cadUser($nome, $email, $senha){
 
   $objeto = new Conexao;
   $dbh = $objeto->conectar();
@@ -193,8 +188,7 @@ function cadUser($nome, $email, $senha)
 }
 
 
-function alterarSenha($email, $novaSenha, $senha)
-{
+function alterarSenha($email, $novaSenha, $senha){
 
   $objeto = new Conexao;
   $dbh = $objeto->conectar();
@@ -217,8 +211,7 @@ function alterarSenha($email, $novaSenha, $senha)
 
 }
 
-function recuperarSenha($email)
-{
+function recuperarSenha($email){
 
 
 
@@ -275,8 +268,7 @@ function recuperarSenha($email)
 
 
 
-class Estoque
-{
+class Estoque{
 
   public function listEstoque()
   {
@@ -363,8 +355,7 @@ class Estoque
 
 }
 
-class Produto
-{
+class Produto{
 
   public function listProd()
   {
@@ -443,8 +434,7 @@ class Produto
 
 
 
-function prodAlim()
-{
+function prodAlim(){
   $objeto = new Conexao;
   $dbh = $objeto->conectar();
   try {
