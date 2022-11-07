@@ -1,6 +1,8 @@
 <?php 
 session_start();
   require_once('modPHP/modulos.php');
+  
+  $produto = new Produto;
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +13,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
 
-    <title>addItem</title>
+    <title>Cad Prod</title>
   </head>
   <body>
 
@@ -23,26 +25,52 @@ session_start();
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
   </ul>
 
-  <?php if(!empty($_POST['item']) & !empty($_POST['unidade'])) { $item = $_POST['item']; $uni = $_POST['unidade']; addItem($item, $uni);}else{ echo"<h3>PREENCHA OS CAMPOS</h3>";}?>
+    <?php 
+
+      if(!empty($_POST['item']) && !empty($_POST['unidade'])) { 
+
+        $prod = addslashes($_POST['item']);
+        $unidade = addslashes($_POST['unidade']);
+
+        $produto->addProd($prod, $unidade);
+
+      }else { 
+        echo"<h3>PREENCHA OS CAMPOS</h3>";
+      }
+
+    ?>
 
       <form method="POST">
+
         <input class="Cap" type="text" name="item">
         <select type="text" name="unidade">
         <option value=>Un</option>
         <option value="Lt">L</option>
         <option value="Kg">Kg</option>
-  </select>
+        </select>
+
         <input type="submit" value="Cadastrar Item">
+
       </form>
-    </div>
 
-    </div>
+      <table>
+      <tr>
+      <td>Nome</td>
+      <td>Unidade</td>
+      </tr>
 
-    <?php pesquItem();?>
-
-    
+      <?php 
+        $produto->listProd();
+      ?>
 
   </body>
-</html>  
+</html>
 
+<?php 
 
+  if(!empty($_GET['cod'])){
+    $cod = addslashes($_GET['cod']);
+    $produto->delProd($cod);
+    header("location: cadItem.php");
+    }
+?>

@@ -13,16 +13,6 @@ select*from usuario;
 select*from produto;
 select*from Alimento;
 
-insert into usuario(nome,email,senha,celular)
-values
-('marcio farias', 'marciofarias22@gmail.com', 'carneiro#53', '16997870865');
-
-insert into mov(ES, qtd, dat)
-values
-('E', 10, '22/08/2022');
-
-
-
 select * from user_mov;
 
 
@@ -38,12 +28,6 @@ unidade varchar (10),
 validade varchar (20),
 quantidade varchar (10));
 
-create table cozinha(
-idCozinha int primary key,
-nome varchar(45));
-
-create table estoque(
-idEstoque int primary key);
 
 create table mov(
 idMov int not null auto_increment primary key,
@@ -51,11 +35,6 @@ ES varchar(50),
 qtd int,
 dat varchar(45));
 
-create table coz_mov(
-idcozinha_fk int,
-idmov_fk int,
-foreign key (idcozinha_fk) references cozinha(idcozinha),
-foreign key (idmov_fk) references mov(idmov));
 
 create table user_mov(
 iduser_fk int,

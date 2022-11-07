@@ -29,6 +29,7 @@ function excelValidade($email){
     //COMEÇA AQUI
     require_once('../modPHP/modExcel.php');
     require_once('../modPHP/modulos.php');
+    
 
 
     getEstoque();
@@ -49,6 +50,8 @@ function excelValidade($email){
         $codItem = $gettedRow[$array]['codigo'];
         $nomeItem = $gettedRow[$array]['nome'];
         $uniItem = $gettedRow[$array]['unidade'];
+        $valiItem = $gettedRow[$array]['validade'];
+        $qtdItem = $gettedRow[$array]['quantidade'];
 
         $array++;
         $Row++;
@@ -56,7 +59,9 @@ function excelValidade($email){
         $worksheet->setCellValue("B$Row", "$codItem");
         $worksheet->setCellValue("C$Row", "$nomeItem");
         $worksheet->setCellValue("D$Row", "$uniItem");
-        $worksheet->setCellValue("G$Row", "$data");
+        $worksheet->setCellValue("E$Row", "$qtdItem");
+        $worksheet->setCellValue("G$Row", "$valiItem");
+        $worksheet->setCellValue("F$Row", "$data");
 
     }
 
@@ -73,5 +78,19 @@ function excelValidade($email){
 $email = $_SESSION['user'];
 excelValidade($email);
 
- echo "<meta http-equiv='refresh' content='0;url=../cadItem.php'>";
+$page = 'cadItem';
+
+switch ($page) {
+    case 'cadItem':
+        header("location: ../cadItem.php");
+    case 'estoque':
+        header("location: ../estoque.php");
+    case 'session':
+        header("location: ../session.php");
+    break;
+}
+
+
+
+
 ?>

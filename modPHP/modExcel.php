@@ -10,7 +10,7 @@ function getEstoque(){
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
 
-    $cmd = $dbh->prepare("SELECT*FROM Produto");
+    $cmd = $dbh->prepare("SELECT*FROM Alimento");
     $cmd->execute();
     $resultado = $cmd;
     
@@ -26,7 +26,9 @@ function getEstoque(){
         
         'codigo' => $row[$i][0],
         'nome' => $row[$i][1],
-        'unidade' => $row[$i][2]
+        'unidade' => $row[$i][2],
+        'validade' => $row[$i][3],
+        'quantidade' => $row[$i][4]
 
         ],
 
