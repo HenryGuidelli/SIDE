@@ -73,8 +73,4 @@ session_start();
     $estoque->delEstoque($codAli);
     header("location: estoque.php");
     }
-
-  $_POST['page'] = 2;
-
-
 ?>
