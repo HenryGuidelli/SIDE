@@ -337,9 +337,29 @@ class Estoque{
         return TRUE;
 
       } else {
+        $addMore = $dbh->query("SELECT codAli, nome, quantidade FROM Alimento WHERE nome = '$prodNome';");
+        $res = $addMore->fetch(PDO::FETCH_ASSOC);
+        $codAli = $res['codAli'];
+        $qtdIn = $res['quantidade'];
 
-        echo "<h3>ITEM NO ESTOQUE</h3>";
-        return FALSE;
+        if($qtdIn<1){
+
+          $peso =  $qtd * $peso;
+
+          if($qtd<1){
+            $status = 'indisponivel';
+          }else {
+            $status = 'disponivel';
+          }
+      
+          $cmd = "UPDATE Alimento SET validade='$venci', quantidade='$qtd', peso='$peso', estatus='$status' WHERE codAli = '$codAli'";
+          $dbh->exec($cmd);
+
+        }else{
+          echo "<h3>ITEM NO ESTOQUE</h3>";
+          return FALSE;
+        }
+
       }
 
     }
