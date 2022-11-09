@@ -16,7 +16,7 @@ create table Alimento(
 codAli int not null auto_increment primary key,
 nome varchar (80),
 unidade varchar (10),
-peso float (3,3),
+peso varchar (7),
 validade varchar (20),
 quantidade varchar (10));
 
@@ -27,6 +27,8 @@ select*from Alimento;
 drop table usuario;
 drop table produto;
 drop table alimento;
+
+drop table Ali_mov;
 
 create table mov(
 idMov int not null auto_increment primary key,

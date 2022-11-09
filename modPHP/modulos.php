@@ -292,7 +292,7 @@ class Estoque{
           }
         }
 
-        echo "<td><a href=''>EDITAR</a> <a href='estoque.php?codAli=$codAli'>EXCLUIR</a></td>";
+        echo "<td><a href='estoque.php?codA=$codAli'>EDITAR</a> <a href='estoque.php?codAli=$codAli'>EXCLUIR</a></td>";
         echo "</tr>";
 
       }
@@ -303,7 +303,7 @@ class Estoque{
     }
   }
 
-  public function addEstoque($idProd, $venci, $qtd){
+  public function addEstoque($idProd, $venci, $qtd, $peso){
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
 
@@ -324,8 +324,11 @@ class Estoque{
 
       if (!$res) {
 
-        $sql = "INSERT INTO Alimento (nome, unidade, validade, quantidade)
-            VALUES ('$prodNome', '$prodUni', '$venci', '$qtd')";
+        $pesoM = $qtd * $peso;
+        var_dump($pesoM);
+
+        $sql = "INSERT INTO Alimento (nome, unidade, peso, validade, quantidade)
+            VALUES ('$prodNome', '$prodUni', '$pesoM', '$venci', '$qtd')";
         $dbh->exec($sql);
         return TRUE;
 
@@ -337,6 +340,22 @@ class Estoque{
 
     }
 
+  }
+
+  public function upEstoque($codAli){
+    $objeto = new Conexao;
+    $dbh = $objeto->conectar();
+
+    $pgm = $dbh->query("SELECT quantidade, peso FROM Alimento WHERE codAli = '$codAli';");
+    $list = $pgm->fetch(PDO::FETCH_ASSOC);
+    $qtd = $list['quantidade'];
+    $peso = $list['peso'];
+
+    $qtdM = $qtd-1;
+    $pesoN =  $qtdM * $peso;
+
+    $cmd = $dbh->prepare("UPDATE FROM Alimento SET quantidade='$qtdM', peso='$pesoN' WHERE codAli = '$codAli'");
+    $cmd->execute();
   }
 
   public function delEstoque($codAli){

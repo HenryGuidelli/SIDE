@@ -27,13 +27,14 @@ session_start();
 
     <?php 
 
-      if(!empty($_POST['prod']) &&!empty($_POST['venci']) &&!empty($_POST['qtd'])) { 
+      if(!empty($_POST['prod']) && !empty($_POST['venci']) && !empty($_POST['qtd']) && !empty($_POST['peso'])) { 
 
         $prod = addslashes($_POST['prod']);
         $venci = addslashes(date('d/m/Y', strtotime($_POST['venci'])));
         $qtd = addslashes($_POST['qtd']);
+        $peso = addslashes($_POST['peso']);
 
-        $estoque->addEstoque($prod, $venci, $qtd);
+        $estoque->addEstoque($prod, $venci, $qtd, $peso);
 
       }else { 
         echo"<h3>PREENCHA OS CAMPOS</h3>";
@@ -46,6 +47,7 @@ session_start();
         <?php prodAlim(); ?>
         </select>
         <input type="number" name="qtd" min= "0">
+        <input type="float" name="peso">
         <input type="date" name="venci">
 
         <input type="submit" value="Cadastrar Item">
@@ -74,4 +76,10 @@ session_start();
     $estoque->delEstoque($codAli);
     header("location: estoque.php");
     }
+
+    if(!empty($_GET['codA'])){
+      $codAli = addslashes($_GET['codA']);
+      $estoque->upEstoque($codAli);
+      header("location: estoque.php");
+      }
 ?>
