@@ -53,6 +53,8 @@ function excelValidade($email)
         $uniItem = $gettedRow[$array]['unidade'];
         $valiItem = $gettedRow[$array]['validade'];
         $qtdItem = $gettedRow[$array]['quantidade'];
+        $status = $gettedRow[$array]['status'];
+        $peso = $gettedRow[$array]['peso'];
 
         $array++;
         $Row++;
@@ -61,8 +63,10 @@ function excelValidade($email)
         $worksheet->setCellValue("C$Row", "$nomeItem");
         $worksheet->setCellValue("D$Row", "$uniItem");
         $worksheet->setCellValue("E$Row", "$qtdItem");
-        $worksheet->setCellValue("G$Row", "$valiItem");
-        $worksheet->setCellValue("F$Row", "$data");
+        $worksheet->setCellValue("H$Row", "$valiItem");
+        $worksheet->setCellValue("G$Row", "$data");
+        $worksheet->setCellValue("F$Row", "$peso");
+        $worksheet->setCellValue("J$Row", "$status");
 
     }
 
@@ -79,14 +83,6 @@ function excelValidade($email)
 $email = $_SESSION['user'];
 excelValidade($email);
 
-$page = 'cadItem';
+    // header("location: ../cadItem.php");
 
-switch ($page) {
-    case 'cadItem':
-        header("location: ../cadItem.php");
-    case 'estoque':
-        header("location: ../estoque.php");
-    case 'session':
-        header("location: ../session.php");
-        break;
-}
+?>

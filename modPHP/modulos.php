@@ -22,12 +22,12 @@ function sendMail($email, $senha, $nome){
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     //$mail->Name = 'Henry Guidelli';
-    $mail->Username = 'sidetcc@gmail.com';
-    $mail->Password = 'iemtpjwwgnejxfhv';
+    $mail->Username = '';
+    $mail->Password = '';
     $mail->Port = 465;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
-    $mail->setFrom('contato.henryguidelli@gmail.com');
+    $mail->setFrom('');
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -59,12 +59,12 @@ function sendExcel($email){
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     //$mail->Name = 'Henry Guidelli';
-    $mail->Username = 'sidetcc@gmail.com';
-    $mail->Password = 'iemtpjwwgnejxfhv';
+    $mail->Username = '';
+    $mail->Password = '';
     $mail->Port = 465;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
-    $mail->setFrom('contato.henryguidelli@gmail.com');
+    $mail->setFrom('');
     $mail->addAddress($email);
 
 
@@ -328,7 +328,7 @@ class Estoque{
           $status = 'Disponivel';
           $pesoM = $qtd * $peso;
         }else {
-          $status = 'indisponivel';
+          $status = 'Indisponivel';
         }
 
         $sql = "INSERT INTO Alimento (nome, unidade, peso, validade, quantidade, estatus)
@@ -347,9 +347,9 @@ class Estoque{
           $peso =  $qtd * $peso;
 
           if($qtd<1){
-            $status = 'indisponivel';
+            $status = 'Indisponivel';
           }else {
-            $status = 'disponivel';
+            $status = 'Disponivel';
           }
       
           $cmd = "UPDATE Alimento SET validade='$venci', quantidade='$qtd', peso='$peso', estatus='$status' WHERE codAli = '$codAli'";
@@ -382,9 +382,9 @@ class Estoque{
     $pesoN =  $qtdM * $pesoD;
 
     if($qtdM<1){
-      $status = 'indisponivel';
+      $status = 'Indisponivel';
     }else {
-      $status = 'disponivel';
+      $status = 'Disponivel';
     }
 
     $cmd = "UPDATE Alimento SET quantidade='$qtdM', peso='$pesoN', estatus='$status' WHERE codAli = '$codAli'";

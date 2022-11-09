@@ -27,8 +27,10 @@ function getEstoque(){
         'codigo' => $row[$i][0],
         'nome' => $row[$i][1],
         'unidade' => $row[$i][2],
-        'validade' => $row[$i][3],
-        'quantidade' => $row[$i][4]
+        'peso' => $row[$i][3],
+        'validade' => $row[$i][4],
+        'quantidade' => $row[$i][5],
+        'status' => $row[$i][6]
 
         ],
 
