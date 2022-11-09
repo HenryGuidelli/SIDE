@@ -325,7 +325,7 @@ class Estoque{
       if (!$res) {
 
         $pesoM = $qtd * $peso;
-        var_dump($pesoM);
+        // var_dump($pesoM);
 
         $sql = "INSERT INTO Alimento (nome, unidade, peso, validade, quantidade)
             VALUES ('$prodNome', '$prodUni', '$pesoM', '$venci', '$qtd')";
@@ -351,11 +351,12 @@ class Estoque{
     $qtd = $list['quantidade'];
     $peso = $list['peso'];
 
-    $qtdM = $qtd-1;
-    $pesoN =  $qtdM * $peso;
+    $qtdM = $qtd - 1;
+    $pesoD = $peso/$qtd;
+    $pesoN =  $qtdM * $pesoD;
 
-    $cmd = $dbh->prepare("UPDATE FROM Alimento SET quantidade='$qtdM', peso='$pesoN' WHERE codAli = '$codAli'");
-    $cmd->execute();
+    $cmd = "UPDATE Alimento SET quantidade='$qtdM', peso='$pesoN' WHERE codAli = '$codAli'";
+    $dbh->exec($cmd);
   }
 
   public function delEstoque($codAli){
