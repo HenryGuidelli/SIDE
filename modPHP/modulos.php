@@ -292,7 +292,7 @@ class Estoque{
           }
         }
 
-        echo "<td><a href='estoque.php?codA=$codAli'>EDITAR</a> <a href='estoque.php?codAli=$codAli'>EXCLUIR</a></td>";
+        echo "<td><a href='estoque.php?codA=$codAli'>Remover 1</a> <a href='estoque.php?codAli=$codAli'>EXCLUIR</a></td>";
         echo "</tr>";
 
       }
@@ -320,15 +320,19 @@ class Estoque{
       $res = array();
 
       $aliN = $dbh->query("SELECT nome FROM Alimento WHERE nome = '$prodNome';");
-      $res = $aliN->fetch();
+      $res = $aliN->fetch(PDO::FETCH_ASSOC);
 
       if (!$res) {
 
-        $pesoM = $qtd * $peso;
-        // var_dump($pesoM);
+        if($qtd>0) {
+          $status = 'Disponivel';
+          $pesoM = $qtd * $peso;
+        }else {
+          $status = 'indisponivel';
+        }
 
-        $sql = "INSERT INTO Alimento (nome, unidade, peso, validade, quantidade)
-            VALUES ('$prodNome', '$prodUni', '$pesoM', '$venci', '$qtd')";
+        $sql = "INSERT INTO Alimento (nome, unidade, peso, validade, quantidade, estatus)
+            VALUES ('$prodNome', '$prodUni', '$pesoM', '$venci', '$qtd', '$status')";
         $dbh->exec($sql);
         return TRUE;
 
@@ -351,12 +355,27 @@ class Estoque{
     $qtd = $list['quantidade'];
     $peso = $list['peso'];
 
+    if($qtd>0){
+
     $qtdM = $qtd - 1;
     $pesoD = $peso/$qtd;
     $pesoN =  $qtdM * $pesoD;
 
-    $cmd = "UPDATE Alimento SET quantidade='$qtdM', peso='$pesoN' WHERE codAli = '$codAli'";
+    if($qtdM<1){
+      $status = 'indisponivel';
+    }else {
+      $status = 'disponivel';
+    }
+
+    $cmd = "UPDATE Alimento SET quantidade='$qtdM', peso='$pesoN', estatus='$status' WHERE codAli = '$codAli'";
     $dbh->exec($cmd);
+
+    return TRUE;
+
+  }else {
+    return FALSE;
+  }
+
   }
 
   public function delEstoque($codAli){

@@ -40,6 +40,15 @@ session_start();
         echo"<h3>PREENCHA OS CAMPOS</h3>";
       }
 
+      if(!empty($_GET['codA'])){
+        $codAli = addslashes($_GET['codA']);
+       if($estoque->upEstoque($codAli) == TRUE){
+        header("location: estoque.php");
+        }else {
+          echo "<h3>FORA DE ESTOQUE</h3>";
+        }
+      }
+
     ?>
 
       <form method="POST">
@@ -60,6 +69,8 @@ session_start();
       <td>peso(Kg)</td>
       <td>Validade</td>
       <td>Quantidade</td>
+      <td>Status</td>
+      <td>Ações</td>
       </tr>
 
       <?php 
@@ -77,9 +88,4 @@ session_start();
     header("location: estoque.php");
     }
 
-    if(!empty($_GET['codA'])){
-      $codAli = addslashes($_GET['codA']);
-      $estoque->upEstoque($codAli);
-      header("location: estoque.php");
-      }
 ?>

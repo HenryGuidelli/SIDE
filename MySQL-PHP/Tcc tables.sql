@@ -18,7 +18,8 @@ nome varchar (80),
 unidade varchar (10),
 peso varchar (7),
 validade varchar (20),
-quantidade varchar (10));
+quantidade varchar (10),
+estatus varchar (30));
 
 select*from usuario;
 select*from produto;
