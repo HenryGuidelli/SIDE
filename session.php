@@ -16,7 +16,7 @@
     <li><a href="estoque.php"><b>ESTOQUE</b></a></li>
     <li value="<?php $_SESSION['user']?>"><a href="excelEXIT/teste01.php"><b>RELATÓRIOS</b></a></li>
     <li style="float:right"><a class="active" href="loginPage.php"><b>SAIR</b></a></li>
-    <li style="float:right"><a href="html/alterarSenha.html"><b>PERFIL</b></a></li>
+    <li style="float:right"><a href="perfil.php"><b>PERFIL</b></a></li>
 
   </ul>
 

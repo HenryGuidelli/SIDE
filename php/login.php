@@ -10,19 +10,16 @@
 
     $_SESSION['user'] = $email;
     $_SESSION['senha'] = $senha;
-  
-    echo $_SESSION['user'];
-    echo $_SESSION['senha'];
 
     $verify = verifyUser($email, $senha);
 
     if($verify == TRUE){
 
-      echo "<meta http-equiv='refresh' content='0;url=../session.php'>";
+      header("location: ../session.php");
 
     }else {
-  
-      echo "<meta http-equiv='refresh' content='0;url=../loginPage.php'>"; 
+
+      header("location: ../loginPage.php");
 
     }
     

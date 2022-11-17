@@ -99,7 +99,7 @@ function verifyEmail($email){
   $cmd->execute();
   $resultado = $cmd->fetch();
 
-  print_r($resultado['email']);
+ // print_r($resultado['email']);
 
   if ($resultado['email'] == $email) {
     return TRUE;
@@ -127,19 +127,19 @@ function verifyUser($email, $senha){
   if (strlen($hash) != 13) {
 
     if (password_verify($senha, $hash)) {
-      echo "<br>PASSWORD IS VALID";
+   //   echo "<br>PASSWORD IS VALID";
       return TRUE;
     } else {
-      echo "<br>PASSWORD IS INVALID";
+    //  echo "<br>PASSWORD IS INVALID";
       return FALSE;
     }
 
   } else {
     if ($senha = $hash) {
-      echo "<br>PASSWORD IS VALID";
+    //  echo "<br>PASSWORD IS VALID";
       return TRUE;
     } else {
-      echo "<br>PASSWORD IS INVALID";
+     // echo "<br>PASSWORD IS INVALID";
       return FALSE;
     }
   }
