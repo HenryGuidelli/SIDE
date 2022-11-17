@@ -23,6 +23,7 @@ session_start();
     <li><a href="rel.php"><b>RELATÓRIOS</b></a></li>
     <li><a href=""><b></b></a></li>
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
+    <li style="float:right"><a href="perfil.php"><b>PERFIL</b></a></li>
   </ul>
 
     <?php 

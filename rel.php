@@ -24,6 +24,7 @@ session_start();
     <li><a href="estoque.php"><b>ESTOQUE</b></a></li>
     <li><a href=""><b></b></a></li>
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
+    <li style="float:right"><a href="perfil.php"><b>PERFIL</b></a></li>
   </ul>
   
       <table>
@@ -40,8 +41,16 @@ session_start();
         $estoque->estoqueRel();
       ?>
 
+      <a href="rel.php?Act=$Act='ATIVO'">GERAR RELATÓRIO</a>
+
   </body>
 </html>
 <?php 
-    // $sendMail->rel();
+
+if(!empty($_GET['Act'])){
+
+  $sendMail->rel();
+
+  }
+
 ?>
