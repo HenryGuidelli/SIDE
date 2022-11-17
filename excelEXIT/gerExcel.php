@@ -4,13 +4,10 @@ session_start();
 //chama a biblioteca...
 require 'vendor/autoload.php';
 
-
-
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-function excelValidade($email)
-{
+function relatorios($email){
     //cria uma nova tabela...
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('excels/modelos/RELATÓRIOS.xlsx');
     $worksheet = $spreadsheet->getActiveSheet('VENCIMENTO PRODUTOS');
@@ -72,17 +69,22 @@ function excelValidade($email)
 
     //escreve em disco o arquivo com os valores...
     $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
-    $writer->save('excels/teste01.xlsx');
-
-    sendExcel($email);
+    $writer->save('excels/estoque.xlsx');
 
 
+
+    $sendMail = new sendMAIL;
+    $sendMail->sendExcel($email);
+
+    return TRUE;
 
 }
-
 $email = $_SESSION['user'];
-excelValidade($email);
 
-    // header("location: ../cadItem.php");
+$rel = relatorios($email);
+
+if($rel == TRUE){
+    header("location: ../rel.php");
+}
 
 ?>

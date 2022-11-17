@@ -20,7 +20,7 @@ session_start();
   <ul>
     <li><a href="session.php"><b>PAGINA INICIAL</b></a></li>
     <li><a href="cadItem.php"><b>CADASTRAR ITENS</b></a></li>
-    <li value="<?php $_SESSION['user']?>"><a href="excelEXIT/teste01.php"><b>RELATÓRIOS</b></a></li>
+    <li><a href="rel.php"><b>RELATÓRIOS</b></a></li>
     <li><a href=""><b></b></a></li>
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
   </ul>

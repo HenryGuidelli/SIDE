@@ -1,6 +1,6 @@
 <?php 
-require_once('modulos.php');
-
-$teste = new Estoque;
-$tes = $teste->addEstoque("");
+require_once('../excelEXIT/gerExcel.php');
+require_once(realpath(dirname(__FILE__)  . '/model/Database.class.php'));
+$email = 'henryguidelli@yahoo.com';
+relatorios($email);
 ?>

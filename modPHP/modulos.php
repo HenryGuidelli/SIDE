@@ -4,6 +4,7 @@ require_once('src/PHPMailer.php');
 require_once('src/SMTP.php');
 require_once('src/Exception.php');
 
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -11,82 +12,89 @@ use PHPMailer\PHPMailer\Exception;
 
 include_once('bdConnect.php');
 
-function sendMail($email, $senha, $nome){
+class sendMAIL{
 
-  $mail = new PHPMailer(true);
+  public function sendMail($email, $senha, $nome){
 
-  try {
+    $mail = new PHPMailer(true);
 
-    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    //$mail->Name = 'Henry Guidelli';
-    $mail->Username = '';
-    $mail->Password = '';
-    $mail->Port = 465;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    try {
 
-    $mail->setFrom('');
-    $mail->addAddress($email);
+      //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+      $mail->isSMTP();
+      $mail->Host = 'smtp.gmail.com';
+      $mail->SMTPAuth = true;
+      //$mail->Name = 'Henry Guidelli';
+      $mail->Username = 'sidetcc@gmail.com';
+      $mail->Password = '';
+      $mail->Port = 465;
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
-    $mail->isHTML(true);
-    $mail->Subject = $nome;
-    $mail->Body = $senha;
+      $mail->setFrom('sidetcc@gmail.com');
+      $mail->addAddress($email);
+
+      $mail->isHTML(true);
+      $mail->Subject = $nome;
+      $mail->Body = $senha;
 
 
 
-    if ($mail->send()) {
-      echo '<h1>Seu email foi enviado!</h1>';
-    } else {
-      echo '<h1>Email FALHOU!</h1>';
+      if ($mail->send()) {
+        echo '<h1>Seu email foi enviado!</h1>';
+      } else {
+        echo '<h1>Email FALHOU!</h1>';
+      }
+
+
+    } catch (Exception $e) {
+      echo "Erro ao enviar a mensagem: {$mail->ErrorInfor}";
     }
-
-
-  } catch (Exception $e) {
-    echo "Erro ao enviar a mensagem: {$mail->ErrorInfor}";
   }
-}
 
-function sendExcel($email){
+  public function sendExcel($email){
 
-  $mail = new PHPMailer(true);
+    $mail = new PHPMailer(true);
 
-  try {
+    try {
 
-    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    //$mail->Name = 'Henry Guidelli';
-    $mail->Username = '';
-    $mail->Password = '';
-    $mail->Port = 465;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+      // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+      $mail->isSMTP();
+      $mail->Host = 'smtp.gmail.com';
+      $mail->SMTPAuth = true;
+      //$mail->Name = 'Henry Guidelli';
+      $mail->Username = 'sidetcc@gmail.com';
+      $mail->Password = '';
+      $mail->Port = 465;
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
-    $mail->setFrom('');
-    $mail->addAddress($email);
-
-
-    $mail->addAttachment("../excelEXIT/excels/teste01.xlsx");
-
-    $mail->isHTML(true);
-    $mail->Subject = $email;
-    $mail->Body = "teste";
-
-    // $goTO = $goTO['estoque'];
+      $mail->setFrom('sidetcc@gmail.com');
+      $mail->addAddress($email);
 
 
+      $mail->addAttachment("../excelEXIT/excels/estoque.xlsx");
 
-    if ($mail->send()) {
-      echo '<h1>EMAIL ENVIADO!</h1>';
-    } else {
-      echo '<h1>Email FALHOU!</h1>';
+      $mail->isHTML(true);
+      $mail->Subject = $email;
+      $mail->Body = "teste";
+
+      // $goTO = $goTO['estoque'];
+
+
+
+      if ($mail->send()) {
+        echo '<h1>EMAIL ENVIADO!</h1>';
+      } else {
+        echo '<h1>Email FALHOU!</h1>';
+      }
+
+
+    } catch (Exception $e) {
+      echo "Erro ao enviar a mensagem: {$mail->ErrorInfor}";
     }
+  }
 
-
-  } catch (Exception $e) {
-    echo "Erro ao enviar a mensagem: {$mail->ErrorInfor}";
+  public function rel(){
+    header("location: excelEXIT/gerExcel.php");
   }
 }
 
@@ -303,6 +311,40 @@ class Estoque{
     }
   }
 
+  public function estoqueRel(){
+
+    $objeto = new Conexao;
+    $dbh = $objeto->conectar();
+
+    $lista = array();
+
+    $cmd = $dbh->query("SELECT*FROM Alimento ORDER BY nome;");
+    $lista = $cmd->fetchAll(PDO::FETCH_ASSOC);
+
+    if (count($lista) > 0) {
+      for ($i = 0; $i < count($lista); $i++) {
+
+        $codAli = $lista[$i]['codAli'];
+        echo "<tr>";
+
+        foreach ($lista[$i] as $C => $L) {
+
+          if ($C != "codAli") {
+
+            echo "<td>" . $L . "</td>";
+
+          }
+        }
+        echo "</tr>";
+
+      }
+      echo "</table>";
+
+    } else {
+      echo "<h3>O ESTOQUE ESTÁ VAZIO</h3>";
+    }
+  }
+
   public function addEstoque($idProd, $venci, $qtd, $peso){
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
@@ -484,8 +526,6 @@ class Produto{
   }
 
 }
-
-
 
 function prodAlim(){
   $objeto = new Conexao;
