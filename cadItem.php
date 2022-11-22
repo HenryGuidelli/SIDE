@@ -26,7 +26,10 @@ session_start();
     <li style="float:right"><a href="perfil.php"><b>PERFIL</b></a></li>
   </ul>
 
-    <?php 
+
+      <div>
+        
+      <?php 
 
       if(!empty($_POST['item']) && !empty($_POST['unidade'])) { 
 
@@ -39,7 +42,7 @@ session_start();
         echo"<h3>PREENCHA OS CAMPOS</h3>";
       }
 
-    ?>
+      ?>
 
       <form method="POST">
 
@@ -49,10 +52,11 @@ session_start();
         <option value="Lt">L</option>
         <option value="Kg">Kg</option>
         </select>
-
-        <input type="submit" value="Cadastrar Item">
+      
+        <button type="submit"><b>CADASTRAR ITEM</b></button>
 
       </form>
+    </div>
 
       <table>
       <tr>

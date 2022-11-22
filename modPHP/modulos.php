@@ -180,7 +180,10 @@ function cadUser($nome, $email, $senha){
         VALUES ('$nome', '$email', '$hash')";
     $dbh->exec($sql);
 
-    sendMail($email, $senha, $nome);
+    $mail = new sendMAIL;
+
+
+    $mail->sendMail($email, $senha, $nome);
 
     sleep(5);
 
@@ -246,7 +249,8 @@ function recuperarSenha($email){
     $userName->execute();
     $nome1 = $userName->fetch();
 
-    sendMail($email, $senha, $nome);
+    $mail = new sendMAIL;
+    $mail->sendMail($email, $senha, $nome);
 
     if ($nome1[0] == $senha) {
       return TRUE;
@@ -452,8 +456,7 @@ class Estoque{
 
 class Produto{
 
-  public function listProd()
-  {
+  public function listProd(){
 
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
@@ -485,12 +488,12 @@ class Produto{
       echo "</table>";
 
     } else {
-      echo "<h3>O ESTOQUE ESTÁ VAZIO</h3>";
+      $vazio = "vazio";
+      return $vazio;
     }
   }
 
-  public function addProd($Produto, $uni)
-  {
+  public function addProd($Produto, $uni){
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
 
@@ -516,8 +519,7 @@ class Produto{
 
   }
 
-  public function delProd($cod)
-  {
+  public function delProd($cod){
     $objeto = new Conexao;
     $dbh = $objeto->conectar();
 

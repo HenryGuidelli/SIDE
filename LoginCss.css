@@ -25,6 +25,10 @@ h1 {
    color: black;
 }
 
+h2 {
+   margin: 1% 0 0 0;
+}
+
 
 input[type="email"]{
    width: 72%;
@@ -70,7 +74,7 @@ input[type="email"]{
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   margin: 20% 2px 0% 2px;
+   margin: 10% 2px 0% 2px;
    cursor: pointer;
   }
 

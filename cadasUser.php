@@ -24,7 +24,7 @@ if(isset($_POST['nome'], $_POST['email'], $_POST['senha'])){
 
       
     }else {
-      echo "<h1>EMAIL JÀ ESTÁ EM USO</h1>";
+      echo "<h2>EMAIL JÀ ESTÁ EM USO</h2>";
     }
 
   }else {
@@ -52,18 +52,15 @@ if(isset($_POST['nome'], $_POST['email'], $_POST['senha'])){
     <div>
       <h1>Criar conta</h1>
       <form method="POST">
-        <input type="email" placeholder="Email" name="email"><br>
-        <input type="text" placeholder="Nome" name="nome"><br>
-        <input type="password" placeholder="Senha" name="senha"><br>
-        <input type="submit" value="Criar conta">
-      </form>
+        <input type="email" placeholder="Email" name="email">
+        <input type="text" placeholder="Nome" name="nome">
+        <input type="password" placeholder="Senha" name="senha">
 
-      <form method="POST" action="recuperarSenha.php">
-        <input type="submit" value="Esqueci a senha">
-      </form>
+        <button type="submit">CRIAR CONTA</button>
 
-      <form method="POST" action="loginPage.php">
-        <input type="submit" value="Já tenho conta">
+        <a href="loginPage.php">JÁ TENHO CONTA</a>
+        <a href="recuperarSenha.php">ESQUECI A SENHA</a>
+
       </form>
 
     </div>

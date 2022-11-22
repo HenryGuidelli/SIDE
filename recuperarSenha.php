@@ -4,7 +4,7 @@
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="recuperar.css">
+    <link rel="stylesheet" href="loginCss.css">
 
     <title>testePHP</title>
   </head>
@@ -13,10 +13,20 @@
     <div>
       <h1>Recuperar senha</h1>
       <form method="POST">
-      <input type="email" placeholder="Email" name="email"><br>
-        <!-- : <input type="email" name=""><br> -->
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+
+      <input type="email" placeholder="Email" name="email">
         
       <button type="submit">Recuperar</button>
+      
       </form>
     </div>
 

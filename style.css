@@ -34,6 +34,11 @@ h3 {
     margin: 0;
 }
 
+h2 {
+    color: rgb(255, 255, 255);
+    margin: 1% auto auto 1%;    
+}
+
 th {
     text-align: center;
     border: 2px solid;
@@ -60,6 +65,53 @@ td {
 p {
     color: rgb(0, 0, 0);
     margin: 0;
+}
+
+div {
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    width: 35%;
+    margin: 1% auto auto 1%;
+ }
+
+input[type="text"]{
+  width: 40%;
+  max-width: 80%;
+  padding: 9px 18px;
+  margin: 1% 0 1% 0;
+  display: inline;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgb(225, 225, 225);
+  box-sizing: border-box;
+}
+select{
+  width: 15%;
+  max-width: 80%;
+  padding: 8px 18px;
+  margin: 1% 1% 1% 0;
+  display: inline;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgb(225, 225, 225);
+  box-sizing: border-box;
+}
+
+
+button{
+  width: 30%;
+  max-width: 80%;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 1% 0 1% 0;
+  cursor: pointer;
 }
 
 .Cap {

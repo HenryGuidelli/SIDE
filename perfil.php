@@ -11,9 +11,13 @@ $email = $_SESSION['user'];
 $cmd = $dbh->prepare("SELECT nome FROM Usuario WHERE email='$email'");
 $cmd->execute();
 $nomeT = $cmd->fetch();
-$nome = $nomeT[0]
+$nome = $nomeT[0];
 
-
+if(!empty($_POST['senha']) && verifyUser($email, $_POST['senha']) == TRUE ){
+  header("location: alterarSenha.php");
+}else {
+  echo "<h2>COLOQUE A SENHA ATUAL PARA ALTERAR</h2>";
+}
 
 ?>
 
@@ -36,13 +40,10 @@ $nome = $nomeT[0]
             <input placeholder="Email" type="email" name="email" value="<?php echo $email;?>" disabled >
             <input placeholder="Nome" type="text" name="nome" value="<?php echo $nome;?>" disabled>
             <input placeholder="Senha Atual" type="password" name="senha">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <input type="submit" value='Alterar senha'>
-            <a href="session.php">Pagina Inicial</a>
+
+            <button type="submit">ALTERAR SENHA</button>
+
+            <a href="session.php">RETORNAR</a>
 
         </form>
 
@@ -50,13 +51,3 @@ $nome = $nomeT[0]
 
 </body>
 </html>
-
-<?php 
-
-    if(!empty($_POST['senha']) && verifyUser($email, $_POST['senha']) == TRUE ){
-        header("location: alterarSenha.php");
-    }else {
-        echo "<h3>COLOQUE A SENHA ATUAL PARA ALTERAR";
-    }
-
-?>
