@@ -22,16 +22,15 @@ session_start();
     <li><a href="session.php"><b>PAGINA INICIAL</b></a></li>
     <li><a href="cadItem.php"><b>CADASTRAR ITENS</b></a></li>
     <li><a href="estoque.php"><b>ESTOQUE</b></a></li>
-    <li><a href=""><b></b></a></li>
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
     <li style="float:right"><a href="perfil.php"><b>PERFIL</b></a></li>
   </ul>
-  
+
       <table>
       <tr>
       <td>Nome</td>
       <td>Unidade</td>
-      <td>peso(Kg)</td>
+      <td>Peso(Kg)</td>
       <td>Validade</td>
       <td>Quantidade</td>
       <td>Status</td>
@@ -41,15 +40,18 @@ session_start();
         $estoque->estoqueRel();
       ?>
 
-      <a href="rel.php?Act=$Act='ATIVO'">GERAR RELATÓRIO</a>
+
 
   </body>
 </html>
-<?php 
 
+<?php 
+$Act = '';
 if(!empty($_GET['Act'])){
 
-  $sendMail->rel();
+  if( $_GET['Act'] === 'ATIVO'){
+    $sendMail->rel();
+  }
 
   }
 

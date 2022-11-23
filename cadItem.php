@@ -22,7 +22,6 @@ session_start();
     <li><a href="session.php"><b>PAGINA INICIAL</b></a></li>
     <li><a href="estoque.php"><b>ESTOQUE</b></a></li>
     <li><a href="rel.php"><b>RELATÓRIOS</b></a></li>
-    <li><a href=""><b></b></a></li>
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
     <li style="float:right"><a href="perfil.php"><b>PERFIL</b></a></li>
   </ul>
@@ -37,7 +36,11 @@ session_start();
         $prod = addslashes($_POST['item']);
         $unidade = addslashes($_POST['unidade']);
 
-        $produto->addProd($prod, $unidade);
+        $cadProd = $produto->addProd($prod, $unidade);
+
+        if($cadProd == TRUE){
+          echo"<h3>ITEM CADASTRADO</h3>";
+        }
 
       }else { 
         echo"<h3>PREENCHA OS CAMPOS</h3>";
@@ -49,7 +52,7 @@ session_start();
 
         <input placeholder="NOME PRODUTO" class="Cap" type="text" name="item">
         <select type="text" name="unidade">
-        <option value=>Un</option>
+        <option>Un</option>
         <option value="Lt">L</option>
         <option value="Kg">Kg</option>
         </select>

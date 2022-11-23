@@ -21,7 +21,6 @@ session_start();
     <li><a href="session.php"><b>PAGINA INICIAL</b></a></li>
     <li><a href="cadItem.php"><b>CADASTRAR ITENS</b></a></li>
     <li><a href="rel.php"><b>RELATÓRIOS</b></a></li>
-    <li><a href=""><b></b></a></li>
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
   </ul>
 
@@ -58,12 +57,11 @@ session_start();
         <?php prodAlim(); ?>
         </select>
         <input placeholder="QUANTIDADE" type="number" name="qtd" min= "0">
-        <br>
         <input placeholder="PESO" type="float" name="peso">
         <input placeholder="DATA" type="date" name="venci">
-        <br>
 
-        <button class="estoq" type="submit"><b>INSERIR ITEM</b></button>
+
+        <button type="submit"><b>INSERIR ITEM</b></button>
       </form>
 
       </div>

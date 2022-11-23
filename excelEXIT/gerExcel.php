@@ -84,7 +84,7 @@ $email = $_SESSION['user'];
 $rel = relatorios($email);
 
 if($rel == TRUE){
-    header("location: ../rel.php");
+      header("location: ../rel.php");
 }
 
 ?>

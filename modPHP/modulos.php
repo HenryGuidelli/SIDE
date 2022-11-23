@@ -63,6 +63,7 @@ class sendMAIL{
       $mail->SMTPAuth = true;
       //$mail->Name = 'Henry Guidelli';
       $mail->Username = 'sidetcc@gmail.com';
+      $mail->Password = '';
       $mail->Port = 465;
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
@@ -94,6 +95,7 @@ class sendMAIL{
 
   public function rel(){
     header("location: excelEXIT/gerExcel.php");
+    return TRUE;
   }
 }
 
@@ -325,6 +327,11 @@ class Estoque{
     $lista = $cmd->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($lista) > 0) {
+
+      $Act = 'ATIVO';
+      echo "<div><h3><b>RELATÓRIO</b></h3><br>";
+      echo"<a class='aEs' href='rel.php?Act=$Act'>GERAR RELATÓRIO</a></div>";
+
       for ($i = 0; $i < count($lista); $i++) {
 
         $codAli = $lista[$i]['codAli'];
@@ -344,7 +351,9 @@ class Estoque{
       echo "</table>";
 
     } else {
-      echo "<h3>O ESTOQUE ESTÁ VAZIO</h3>";
+      $Act = 'Des';
+      echo "<div><h3><b>NÃO HÁ COMO GERAR RELATÓRIO: ESTOQUE VAZIO</b></h3><br>";
+      echo"<a class='aEs' href='rel.php?Act=$Act'>GERAR RELATÓRIO</a></div>";
     }
   }
 
@@ -358,7 +367,6 @@ class Estoque{
     $prod = $cmd->fetch(PDO::FETCH_ASSOC);
     $prodNome = $prod['nome'];
     $prodUni = $prod['unidade'];
-
 
     if ($prod != NULL) {
 
@@ -437,9 +445,9 @@ class Estoque{
 
     return TRUE;
 
-  }else {
-    return FALSE;
-  }
+    }else {
+      return FALSE;
+    }
 
   }
 
@@ -512,7 +520,7 @@ class Produto{
 
     } else {
 
-      echo "<h3><b>ITEM CADASTRADO<b></h3>";
+      echo "<h3><b>ITEM JÁ CADASTRADO<b></h3>";
       return FALSE;
     }
 
