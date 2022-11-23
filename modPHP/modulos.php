@@ -305,7 +305,7 @@ class Estoque{
           }
         }
 
-        echo "<td><a href='estoque.php?codA=$codAli'>Remover 1</a> <a href='estoque.php?codAli=$codAli'>EXCLUIR</a></td>";
+        echo "<td><a class='addRem' href='estoque.php?codA=$codAli'>-</a> <a class='addRem' href='estoque.php?codAli=$codAli'>🗑</a></td>";
         echo "</tr>";
 
       }
@@ -488,7 +488,7 @@ class Produto{
           }
         }
 
-        echo "<td><a href='cadItem.php?cod=$cod'>EXCLUIR</a></td>";
+        echo "<td><a href='cadItem.php?cod=$cod'>🗑</a></td>";
         echo "</tr>";
 
       }

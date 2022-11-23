@@ -45,7 +45,7 @@ if (!empty($_SESSION['user']) && !empty($_POST['senha']) && !empty($_POST['senha
         
         <button type="submit">ALTERAR SENHA</button>
 
-        <a href="session.php">RETORNAR</a>
+        <a href="perfil.php">RETORNAR</a>
 
       </form>
 
