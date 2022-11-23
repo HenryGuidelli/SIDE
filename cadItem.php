@@ -3,6 +3,7 @@ session_start();
   require_once('modPHP/modulos.php');
   
   $produto = new Produto;
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@ session_start();
 
 
       <div>
-        
+
       <?php 
 
       if(!empty($_POST['item']) && !empty($_POST['unidade'])) { 
@@ -46,7 +47,7 @@ session_start();
 
       <form method="POST">
 
-        <input class="Cap" type="text" name="item">
+        <input placeholder="NOME PRODUTO" class="Cap" type="text" name="item">
         <select type="text" name="unidade">
         <option value=>Un</option>
         <option value="Lt">L</option>
@@ -62,10 +63,11 @@ session_start();
       <tr>
       <td>Nome</td>
       <td>Unidade</td>
+      <td>Ações</td>
       </tr>
 
       <?php 
-        $produto->listProd();
+       echo $produto->listProd();
       ?>
 
   </body>

@@ -63,7 +63,6 @@ class sendMAIL{
       $mail->SMTPAuth = true;
       //$mail->Name = 'Henry Guidelli';
       $mail->Username = 'sidetcc@gmail.com';
-      $mail->Password = '';
       $mail->Port = 465;
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
@@ -311,7 +310,7 @@ class Estoque{
       echo "</table>";
 
     } else {
-      echo "<h3>O ESTOQUE ESTÁ VAZIO</h3>";
+      echo "<div><h3><b>O ESTOQUE ESTÁ VAZIO</b></h3></div>";
     }
   }
 
@@ -476,20 +475,22 @@ class Produto{
 
           if ($C != "codigo") {
 
-            echo "<td>" . $L . "</td>";
+           echo "<td>" . $L . "</td>";
 
           }
         }
 
-        echo "<td><a href=''>EDITAR</a> <a href='cadItem.php?cod=$cod'>EXCLUIR</a></td>";
+        echo "<td><a href='cadItem.php?cod=$cod'>EXCLUIR</a></td>";
         echo "</tr>";
 
       }
       echo "</table>";
+      return true;
 
     } else {
-      $vazio = "vazio";
-      return $vazio;
+
+      echo "<div><h3><b>NENHUM ITEM CADASTRADO</b></h3></div>";
+
     }
   }
 
@@ -511,7 +512,7 @@ class Produto{
 
     } else {
 
-      echo "<h3>ITEM NO ESTOQUE</h3>";
+      echo "<h3><b>ITEM CADASTRADO<b></h3>";
       return FALSE;
     }
 

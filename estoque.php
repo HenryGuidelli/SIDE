@@ -25,42 +25,48 @@ session_start();
     <li style="float:right"><a class="active" href="loginPage.php"><b>Sair</b></a></li>
   </ul>
 
-    <?php 
+      <div class='estoque'>
+      
+      <?php 
 
-      if(!empty($_POST['prod']) && !empty($_POST['venci']) && !empty($_POST['qtd']) && !empty($_POST['peso'])) { 
+        if(!empty($_POST['prod']) && !empty($_POST['venci']) && !empty($_POST['qtd']) && !empty($_POST['peso'])) { 
 
-        $prod = addslashes($_POST['prod']);
-        $venci = addslashes(date('d/m/Y', strtotime($_POST['venci'])));
-        $qtd = addslashes($_POST['qtd']);
-        $peso = addslashes($_POST['peso']);
+          $prod = addslashes($_POST['prod']);
+          $venci = addslashes(date('d/m/Y', strtotime($_POST['venci'])));
+          $qtd = addslashes($_POST['qtd']);
+          $peso = addslashes($_POST['peso']);
 
-        $estoque->addEstoque($prod, $venci, $qtd, $peso);
+          $estoque->addEstoque($prod, $venci, $qtd, $peso);
 
-      }else { 
-        echo"<h3>PREENCHA OS CAMPOS</h3>";
-      }
-
-      if(!empty($_GET['codA'])){
-        $codAli = addslashes($_GET['codA']);
-       if($estoque->upEstoque($codAli) == TRUE){
-        header("location: estoque.php");
-        }else {
-          echo "<h3>FORA DE ESTOQUE</h3>";
+        }else { 
+          echo"<h3>PREENCHA OS CAMPOS</h3>";
         }
-      }
 
-    ?>
+        if(!empty($_GET['codA'])){
+          $codAli = addslashes($_GET['codA']);
+        if($estoque->upEstoque($codAli) == TRUE){
+          header("location: estoque.php");
+          }else {
+            echo "<h3>FORA DE ESTOQUE</h3>";
+          }
+        }
+
+      ?>
 
       <form method="POST">
         <select type="text" name="prod">
         <?php prodAlim(); ?>
         </select>
-        <input type="number" name="qtd" min= "0">
-        <input type="float" name="peso">
-        <input type="date" name="venci">
+        <input placeholder="QUANTIDADE" type="number" name="qtd" min= "0">
+        <br>
+        <input placeholder="PESO" type="float" name="peso">
+        <input placeholder="DATA" type="date" name="venci">
+        <br>
 
-        <input type="submit" value="Cadastrar Item">
+        <button class="estoq" type="submit"><b>INSERIR ITEM</b></button>
       </form>
+
+      </div>
 
       <table>
       <tr>
