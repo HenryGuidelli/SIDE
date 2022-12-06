@@ -14,7 +14,7 @@ include_once('bdConnect.php');
 
 class sendMAIL{
 
-  public function sendMail($email, $senha, $nome){
+  public function sendMail($email, $nome){
 
     $mail = new PHPMailer(true);
 
@@ -34,8 +34,8 @@ class sendMAIL{
       $mail->addAddress($email);
 
       $mail->isHTML(true);
-      $mail->Subject = $nome;
-      $mail->Body = $senha;
+      $mail->Subject = "Cadastro efetuado!";
+      $mail->Body = "<h1><b>$nome, seu cadastro foi realizado!</b></h1>";
 
 
 
@@ -74,11 +74,8 @@ class sendMAIL{
       $mail->addAttachment("../excelEXIT/excels/estoque.xlsx");
 
       $mail->isHTML(true);
-      $mail->Subject = $email;
-      $mail->Body = "teste";
-
-      // $goTO = $goTO['estoque'];
-
+      $mail->Subject = "NOVO RELATORIO";
+      $mail->Body = "VOCE RECEBEU UM NOVO RELATORIO DO ESTOQUE!";
 
 
       if ($mail->send()) {
@@ -87,6 +84,40 @@ class sendMAIL{
         echo '<h1>Email FALHOU!</h1>';
       }
 
+
+    } catch (Exception $e) {
+      echo "Erro ao enviar a mensagem: {$mail->ErrorInfor}";
+    }
+  }
+
+  public function recuperar($email, $senha){
+
+    $mail = new PHPMailer(true);
+
+    try {
+
+      //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+      $mail->isSMTP();
+      $mail->Host = 'smtp.gmail.com';
+      $mail->SMTPAuth = true;
+      //$mail->Name = 'Henry Guidelli';
+      $mail->Username = 'sidetcc@gmail.com';
+      $mail->Password = '';
+      $mail->Port = 465;
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+
+      $mail->setFrom('sidetcc@gmail.com');
+      $mail->addAddress($email);
+
+      $mail->isHTML(true);
+      $mail->Subject = "RECUPERAR SENHA";
+      $mail->Body = "<h1><b>Segue seu codigo para recuperar sua senha:<br><br> $senha</b></h1>";
+
+      if ($mail->send()) {
+        header("location: loginPage.php");
+      } else {
+        echo '<h1>Email FALHOU!</h1>';
+      }
 
     } catch (Exception $e) {
       echo "Erro ao enviar a mensagem: {$mail->ErrorInfor}";
@@ -230,8 +261,6 @@ function recuperarSenha($email){
 
   $senha = $senhaProv;
 
-  $nome = "SIDE: RECUPERAR SENHA TESTE";
-
   $objeto = new Conexao;
   $dbh = $objeto->conectar();
 
@@ -251,7 +280,7 @@ function recuperarSenha($email){
     $nome1 = $userName->fetch();
 
     $mail = new sendMAIL;
-    $mail->sendMail($email, $senha, $nome);
+    $mail->recuperar($email, $senha);
 
     if ($nome1[0] == $senha) {
       return TRUE;
@@ -259,20 +288,10 @@ function recuperarSenha($email){
       return FALSE;
     }
 
-
-    // print_r($resultado[0]);
-    // print_r($nome1[0]);
-
-    // echo $senhaProv;
-
-
-    //echo "New record created successfully";
   } catch (PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
     echo 'Connection failed: ' . $e->getMessage();
   }
-
-
 
 }
 

@@ -21,16 +21,6 @@ validade varchar (20),
 quantidade varchar (10),
 estatus varchar (30));
 
-select*from usuario;
-select*from produto;
-select*from Alimento;
-
-drop table usuario;
-drop table produto;
-drop table alimento;
-
-drop table Ali_mov;
-
 create table mov(
 idMov int not null auto_increment primary key,
 ES varchar(50),
@@ -54,3 +44,14 @@ idAli_fk int,
 idmov_fk int,
 foreign key (idAli_fk) references alimento(codAli),
 foreign key (idmov_fk) references mov(idmov));
+
+
+select*from usuario;
+select*from produto;
+select*from Alimento;
+
+drop table usuario;
+drop table produto;
+drop table alimento;
+
+drop table Ali_mov;
