@@ -9,8 +9,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-
 include_once('bdConnect.php');
+
 
 class sendMAIL{
 
@@ -188,7 +188,6 @@ function verifyUser($email, $senha){
 
 }
 
-
 function cadUser($nome, $email, $senha){
 
   $objeto = new Conexao;
@@ -215,7 +214,7 @@ function cadUser($nome, $email, $senha){
     $mail = new sendMAIL;
 
 
-    $mail->sendMail($email, $senha, $nome);
+    $mail->sendMail($email, $nome);
 
     sleep(5);
 
@@ -294,8 +293,6 @@ function recuperarSenha($email){
   }
 
 }
-
-
 
 class Estoque{
 
