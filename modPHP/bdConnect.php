@@ -4,9 +4,9 @@
      function conectar(){
 
       $host= "127.0.0.1";
-      $dbname= "estoquetcc";
-      $user = "";
-      $password = "";
+      $dbname= "EstoqueTcc";
+      $user = "root";
+      $password = "z01oxm313";
       $dbh;
 
        $this->dbh = new PDO("mysql:host={$host};dbname={$dbname}", $user, $password);

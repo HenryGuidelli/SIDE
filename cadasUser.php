@@ -7,9 +7,9 @@ if(isset($_POST['nome'], $_POST['email'], $_POST['senha'])){
   $email = $_POST['email'];
   $senha = $_POST['senha'];
   $goTO = $goTO['cadFeito'];
-}else {
-  
 }
+  
+
 
 
 

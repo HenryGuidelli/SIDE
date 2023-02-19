@@ -30,24 +30,24 @@ dat varchar(45));
 create table user_mov(
 iduser_fk int,
 idmov_fk int,
-foreign key (iduser_fk) references usuario(iduser),
+foreign key (iduser_fk) references Usuario(iduser),
 foreign key (idmov_fk) references mov(idmov));
 
 create table prod_mov(
 idprod_fk int,
 idmov_fk int,
-foreign key (idprod_fk) references produto(codigo),
+foreign key (idprod_fk) references Produto(codigo),
 foreign key (idmov_fk) references mov(idmov));
 
 create table Ali_mov(
 idAli_fk int,
 idmov_fk int,
-foreign key (idAli_fk) references alimento(codAli),
+foreign key (idAli_fk) references Alimento(codAli),
 foreign key (idmov_fk) references mov(idmov));
 
 
-select*from usuario;
-select*from produto;
+select*from Usuario;
+select*from Produto;
 select*from Alimento;
 
 drop table usuario;

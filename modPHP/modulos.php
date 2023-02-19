@@ -379,7 +379,7 @@ class Estoque{
 
     $prod = array();
 
-    $cmd = $dbh->query("SELECT nome, unidade FROM produto WHERE codigo = '$idProd';");
+    $cmd = $dbh->query("SELECT nome, unidade FROM Produto WHERE codigo = '$idProd';");
     $prod = $cmd->fetch(PDO::FETCH_ASSOC);
     $prodNome = $prod['nome'];
     $prodUni = $prod['unidade'];
@@ -524,12 +524,12 @@ class Produto{
 
     $prod = array();
 
-    $cmd = $dbh->query("SELECT nome FROM produto WHERE nome = '$Produto';");
+    $cmd = $dbh->query("SELECT nome FROM Produto WHERE nome = '$Produto';");
     $prod = $cmd->fetch(PDO::FETCH_ASSOC);
 
     if (empty($prod['nome'])) {
 
-      $sql = "INSERT INTO produto (nome, unidade)
+      $sql = "INSERT INTO Produto (nome, unidade)
             VALUES ('$Produto', '$uni')";
       $dbh->exec($sql);
       return TRUE;
