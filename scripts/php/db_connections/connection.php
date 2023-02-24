@@ -1,6 +1,6 @@
 <?php
 
-require_once '../config.php';
+require_once 'scripts/php/config.php';
 
      Class Conexao{
 

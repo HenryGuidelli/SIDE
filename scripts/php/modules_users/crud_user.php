@@ -1,5 +1,5 @@
 <?php
-require_once '../db_connections/connection.php';    
+require_once 'scripts/php/db_connections/connection.php';    
 
 
 Class User{
@@ -114,7 +114,7 @@ Class User{
     }      
 }
 
-// $con = new User;    
+ $con = new User;    
 
 // $con->verUser('');
 
