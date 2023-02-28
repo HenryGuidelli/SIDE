@@ -1,3 +1,10 @@
+<?php
+require_once "scripts/php/modules_email/module_email.php";
+require_once "scripts/php/modules_users/crud_user.php";
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
