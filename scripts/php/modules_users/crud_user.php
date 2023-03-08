@@ -114,7 +114,7 @@ Class User{
     }      
 }
 
- $con = new User;    
+// $con = new User;    
 
 // $con->verUser('');
 
@@ -125,3 +125,4 @@ Class User{
 // $con->altSenha('henryguidelli@yahoo.com', '456', '123');
 
 // $con->recSenha('henryguidelli@yahoo.com');
+?>
